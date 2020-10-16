@@ -7,7 +7,7 @@ const submit = document.getElementById('submit');
 
 function waitFor(element, eventName) {
   return new Promise(resolve => {
-    document.addEventListener(eventName, (event) => {
+    element.addEventListener(eventName, (event) => {
       if (event.target === element) {
         resolve(`You ${eventName} on ${event.target.id}`);
       }
