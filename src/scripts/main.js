@@ -8,9 +8,7 @@ const submit = document.getElementById('submit');
 function waitFor(element, eventName) {
   return new Promise(resolve => {
     element.addEventListener(eventName, (event) => {
-      if (event.target === element) {
-        resolve(`You ${eventName} on ${event.target.id}`);
-      }
+      resolve(`You ${eventName} on ${event.target.id}`);
     });
   });
 }
