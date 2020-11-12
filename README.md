@@ -7,10 +7,10 @@
 
 To complete this task, you should create a function that returns a `Promise`.
 Create function `waitFor` which takes two parameters:
-- `element` - DOM element
-- `eventName`
+- `element` - DOM element;
+- `eventName`, such as `click`, `input` and `blur`.
 
 The function returns a Promise which should be resolved when `eventName` happened on `element`.
 
-Hint: It doesn't matter in what way you choose to notify users about resolved or rejected promises. You can use DOM or `console.log`.
+Hint: You have to use DOM to notify users about resolved or rejected promises.
 Hint: For convenience, several inputs and buttons have been added to the DOM. Use them for testing your function.
