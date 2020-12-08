@@ -13,8 +13,8 @@ Create function `waitFor` which takes two parameters:
 - `eventName`, such as `click`, `input` and `blur`.
 
 The function returns a Promise which should be resolved when `eventName` happened on `element`.
+Function should print the message with text: `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`
+For example: `It was click on the element: INPUT, id: login.`
 
-Example of the promise: `It was click on the element: INPUT, id: login.`
-
-Hint: You have to use DOM to notify users about resolved or rejected promises.
+Hint: You have to use <div> elements with class `message` to notify users about resolved or rejected promises. 
 Hint: For convenience, several inputs and buttons have been added to the DOM. Use them for testing your function.
