@@ -1,6 +1,6 @@
 'use strict';
 
-Cypress.Commands.add('checkNotificationExist', (promise, element, id) => {
+Cypress.Commands.add('checkNotificationExists', (promise, element, id) => {
   cy.contains(`It was ${promise} on the element: ${element}, id: ${id}.`)
     .should('be.visible');
 });
