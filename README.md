@@ -8,13 +8,17 @@
 ### Task: Promise function
 
 To complete this task, you should create a function that returns a `Promise`.
+
 Create function `waitFor` which takes two parameters:
 - `element` - DOM element;
 - `eventName`, such as `click`, `input` and `blur`.
-
-The function returns a Promise which should be resolved when `eventName` happened on `element`.
-Function should print the message with text: `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`
+The function returns a `Promise` which should be resolved when `eventName` happened on `element`.
+Function should return the notification message with text:
+`It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`
 For example: `It was click on the element: INPUT, id: login.`
 
-Hint: You have to use <div> elements with class `message` to notify users about resolved or rejected promises. 
+Create a function `printMessage` which takes one parameter `message` and returns a <div> element with notification message above. Notification message should have class `message`.
+
+All promises are called in `callPromise.js` file. Implement only `waitFor` and `printMessage` functions.
+
 Hint: For convenience, several inputs and buttons have been added to the DOM. Use them for testing your function.
