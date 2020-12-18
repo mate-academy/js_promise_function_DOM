@@ -9,7 +9,7 @@ function detectCtrl(e) {
 function detectPaste(e) {
   const evt = window.event ? event : e;
 
-  return evt.keyCode === 86 && evt.ctrlKey;
+  return evt.keyCode === 86;
 }
 
 function isFieldEmpty(field) {
@@ -30,35 +30,35 @@ function validate(form) {
   return true;
 }
 
-function waitFor(element, eventName) {
+function waitFor(element, eventName, eventRepeats) {
   const resolver = (resolve, reject) => {
     element.addEventListener(eventName, (e) => {
       let canResolve = false;
       let msgPromise = `'${eventName}'`;
 
-      if (element.tagName === 'FORM' && eventName === 'submit') {
-        e.preventDefault();
+      switch (true) {
+        case element.tagName === 'FORM' && eventName === 'submit':
+          e.preventDefault();
+          canResolve = validate(element);
+          break;
+        case element.tagName === 'INPUT' && eventName === 'keydown':
+          canResolve = eventRepeats ? detectPaste(e) : detectCtrl(e);
+          break;
+        default:
+          msgPromise = ` on '${element.tagName.toLowerCase()}`
+          + `[name="${element.name}"]'`;
 
-        if (validate(element)) {
-          canResolve = true;
-        }
-      } else if (element.tagName === 'INPUT' && eventName === 'keydown') {
-        if (detectCtrl(e)) {
-          canResolve = true;
-        }
-      } else {
-        msgPromise = ` on '${element.tagName.toLowerCase()}`
-        + `[name="${element.name}"]'`;
-
-        if (!isFieldEmpty(element.value)) {
-          canResolve = true;
-        }
+          canResolve = !isFieldEmpty(element.value);
       }
 
       if (canResolve) {
-        resolve('Promise was resolved in ' + msgPromise);
+        resolve({
+          msg: 'Promise was resolved in ' + msgPromise, ev: eventName,
+        });
       } else {
-        reject('Promise was rejected in ' + msgPromise);
+        reject({
+          msg: 'Promise was rejected in ' + msgPromise, ev: eventName,
+        });
       }
     });
   };
@@ -73,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
   + 'right: 10px; text-align: right;';
   document.body.append(msgBlock);
 
-  let pasteDone = false;
   const showMessage = (msg, isResolved) => {
     const msgElem = document.createElement('p');
     const color = typeof isResolved === 'boolean'
@@ -84,48 +83,42 @@ document.addEventListener('DOMContentLoaded', () => {
     msgElem.innerHTML = msg;
 
     msgBlock.append(msgElem);
-
-    pasteDone = typeof isResolved !== 'boolean';
   };
 
   const form = document.querySelector('form');
+  const blurLogin = waitFor(form.querySelector('#login'), 'blur');
 
   // Detect user do Ctrl+V to paste a password
-  // Will work if user press Ctrl for the first time
-
-  // If he press Ctrl without V key code for the first time,
-  // we suppose he is going to paste something for the second time
-  waitFor(form.querySelector('#password'), 'keydown')
-    .then(resolve => {
-      showMessage(resolve, true);
-
-      form.querySelector('#password').addEventListener('keydown', (e) => {
-        if (detectPaste(e) && !pasteDone) {
-          showMessage('Hmm. Maybe a password was reserved '
-          + 'in order not to remember it &#x1F600');
-        }
-      });
-    })
-    .catch(error => {
-      showMessage(error, false);
-    });
-
-  const focuseOutLogin = waitFor(form.querySelector('#login'), 'blur');
+  // Will work if user press Ctrl+V for the first time
+  const passwElem = form.querySelector('#password');
+  const keyDownPassw = waitFor(passwElem, 'keydown');
   const submitForm = waitFor(form, 'submit');
 
-  focuseOutLogin
+  blurLogin
     .then(resolve => {
-      showMessage(resolve, true);
+      showMessage(resolve.msg, true);
     })
     .catch(error => {
-      showMessage(error, false);
+      showMessage(error.msg, false);
+    });
+
+  keyDownPassw
+    .then(() => {
+      return waitFor(passwElem, 'keydown', true);
+    })
+    .then(() => {
+      showMessage('Hmm. Maybe a password was reserved '
+        + 'in order not to remember it &#x1F600');
+    })
+    .catch(error => {
+      showMessage(error.msg, false);
     });
 
   submitForm
     .then(resolve => {
-      showMessage(resolve, true);
+      showMessage(resolve.msg, true);
     })
     .catch(error => {
-      showMessage(error, false);
+      showMessage(error.msg, false);
     });
 });
