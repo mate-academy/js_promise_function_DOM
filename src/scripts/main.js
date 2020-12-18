@@ -30,7 +30,7 @@ function validate(form) {
   return true;
 }
 
-function waitFor(element, eventName, eventRepeats) {
+function waitFor(element, eventName) {
   const resolver = (resolve, reject) => {
     element.addEventListener(eventName, (e) => {
       let canResolve = false;
@@ -42,7 +42,10 @@ function waitFor(element, eventName, eventRepeats) {
           canResolve = validate(element);
           break;
         case element.tagName === 'INPUT' && eventName === 'keydown':
-          canResolve = eventRepeats ? detectPaste(e) : detectCtrl(e);
+          canResolve = detectCtrl(e);
+          break;
+        case element.tagName === 'INPUT' && eventName === 'keyup':
+          canResolve = detectPaste(e);
           break;
         default:
           msgPromise = ` on '${element.tagName.toLowerCase()}`
@@ -104,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   keyDownPassw
     .then(() => {
-      return waitFor(passwElem, 'keydown', true);
+      return waitFor(passwElem, 'keyup');
     })
     .then(() => {
       showMessage('Hmm. Maybe a password was reserved '
