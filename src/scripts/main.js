@@ -1,9 +1,5 @@
 'use strict';
 
-function isFieldEmpty(field) {
-  return !field.length;
-}
-
 function detectCtrl(e) {
   const evt = window.event ? event : e; // IE browser
 
@@ -14,6 +10,10 @@ function detectPaste(e) {
   const evt = window.event ? event : e;
 
   return evt.keyCode === 86 && evt.ctrlKey;
+}
+
+function isFieldEmpty(field) {
+  return !field.length;
 }
 
 function validate(form) {
@@ -56,9 +56,9 @@ function waitFor(element, eventName) {
       }
 
       if (canResolve) {
-        resolve('Promise was resolved from ' + msgPromise);
+        resolve('Promise was resolved in ' + msgPromise);
       } else {
-        reject('Promise was rejected from ' + msgPromise);
+        reject('Promise was rejected in ' + msgPromise);
       }
     });
   };
@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
   + 'right: 10px; text-align: right;';
   document.body.append(msgBlock);
 
+  let pasteDone = false;
   const showMessage = (msg, isResolved) => {
     const msgElem = document.createElement('p');
     const color = typeof isResolved === 'boolean'
@@ -80,24 +81,28 @@ document.addEventListener('DOMContentLoaded', () => {
       : 'rgb(0, 146, 200)';
 
     msgElem.style.color = color;
-    msgElem.innerText = msg;
+    msgElem.innerHTML = msg;
 
     msgBlock.append(msgElem);
+
+    pasteDone = typeof isResolved !== 'boolean';
   };
 
   const form = document.querySelector('form');
 
   // Detect user do Ctrl+V to paste a password
-  // Will work if user press Ctrl first time
-  // Even if he press this key without V key code
+  // Will work if user press Ctrl for the first time
+
+  // If he press Ctrl without V key code for the first time,
+  // we suppose he is going to paste something for the second time
   waitFor(form.querySelector('#password'), 'keydown')
     .then(resolve => {
       showMessage(resolve, true);
 
       form.querySelector('#password').addEventListener('keydown', (e) => {
-        if (detectPaste(e)) {
-          showMessage('Hmm. User either have reserved '
-          + 'his (her) password, either his (her) is a fraud.');
+        if (detectPaste(e) && !pasteDone) {
+          showMessage('Hmm. Maybe a password was reserved '
+          + 'in order not to remember it &#x1F600');
         }
       });
     })
