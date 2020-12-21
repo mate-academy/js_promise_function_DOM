@@ -21,8 +21,7 @@ describe('Promise function app', () => {
   });
 
   it(`should resolve 'blur' promise for 'login' field`, () => {
-    cy.get('#login').click();
-    cy.get('body').click({ force: true });
+    cy.get('#login').click().blur();
     cy.checkNotificationExist('blur', 'INPUT', 'login');
   });
 
@@ -37,8 +36,7 @@ describe('Promise function app', () => {
   });
 
   it(`should resolve 'blur' promise for 'password' field`, () => {
-    cy.get('#password').click();
-    cy.get('body').click({ force: true });
+    cy.get('#password').click().blur();
     cy.checkNotificationExist('blur', 'INPUT', 'password');
   });
 
@@ -48,8 +46,7 @@ describe('Promise function app', () => {
   });
 
   it(`should resolve 'blur' promise for 'submit' button`, () => {
-    cy.get('#submit').click();
-    cy.get('body').click({ force: true });
+    cy.get('#submit').click().blur();
     cy.checkNotificationExist('blur', 'BUTTON', 'submit');
   });
 });
