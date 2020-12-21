@@ -17,7 +17,7 @@ Function should return the notification message with text:
 `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`
 For example: `It was click on the element: INPUT, id: login.`
 
-Create a function `printMessage` which takes one parameter `message` and returns a <div> element with notification message above. Notification message should have class `message`.
+Create a function `printMessage` which takes one parameter `message` and adds to the DOM a <div> element with notification message above. Notification message should have class `message`.
 
 All promises are called in `callPromise.js` file. Implement only `waitFor` and `printMessage` functions.
 
