@@ -2,8 +2,8 @@
 
 function waitFor(element, eventName) {
   return new Promise((resolve, reject) => {
-    element.addEventListener(eventName, (e) => {
-      if (eventName !== e.type) {
+    element.addEventListener(eventName, (domEvent) => {
+      if (eventName !== domEvent.type) {
         return;
       }
 
