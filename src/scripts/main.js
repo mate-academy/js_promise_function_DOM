@@ -2,11 +2,13 @@
 
 function waitFor(element, eventName) {
   return new Promise(function(resolve, reject) {
-    element.addEventListener(eventName, () => {
-      resolve(
-        `It was ${eventName} on the element: ${element.nodeName},
-        id: ${element.id}.`
-      );
+    element.addEventListener(eventName, (actualEvent) => {
+      if (actualEvent.type === eventName) {
+        resolve(
+          `It was ${eventName} on the element: ${element.nodeName},
+          id: ${element.id}.`
+        );
+      }
     });
   });
 }
