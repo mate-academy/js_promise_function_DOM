@@ -8,8 +8,6 @@ function waitFor(element, eventName) {
 
       resolve(text);
     });
-  }).then((text) => {
-    printMessage(text);
   }).catch(() => {});
 }
 
