@@ -1,4 +1,6 @@
 body {
+  position: relative;
+
   background: #eee;
   font-family: Roboto, sans-serif;
   margin: 0;
@@ -54,4 +56,14 @@ button {
   text-align: center;
   padding: 10px;
   left: 10px;
+}
+
+.inner {
+  position: absolute;
+  right: 100px;
+  display: none;
+  padding: 30px;
+  margin-bottom: 20px;
+  background-color: rgb(215, 229, 250);
+  border-radius: 15px;
 }
