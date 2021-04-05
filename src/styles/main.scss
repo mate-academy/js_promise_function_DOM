@@ -47,6 +47,17 @@ button {
   font-weight: 700;
 }
 
+.messages {
+  position: absolute;
+  top: 50px;
+
+  & > * {
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+  }
+}
+
 .message {
   border-radius: 15px;
   background-color: rgb(207, 202, 231);
