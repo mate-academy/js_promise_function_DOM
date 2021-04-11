@@ -1,11 +1,22 @@
 'use strict';
 
+const info = document.querySelector('.info');
+
 function waitFor(element, eventName) {
-// write your code here
+  return new Promise((resolve) => {
+    element.addEventListener(eventName, () => {
+      resolve(`It was ${eventName}
+        on the element: ${element.nodeName}, id: ${element.id}`);
+    });
+  });
 }
 
 const printMessage = (message) => {
-// write your code here
+  info.insertAdjacentHTML('beforeend', `
+  <div class="success">
+    ${message}
+  </div>
+`);
 };
 
 module.exports = {
