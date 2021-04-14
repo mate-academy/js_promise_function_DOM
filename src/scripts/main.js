@@ -1,11 +1,36 @@
 'use strict';
 
+function getMessageBox() {
+  let messageBox = document.querySelector('.messages');
+
+  if (!messageBox) {
+    document.body.insertAdjacentHTML('afterbegin',
+      `
+        <div class='messages'></div>
+      `);
+
+    messageBox = document.querySelector('.messages');
+  }
+
+  return messageBox;
+}
+
 function waitFor(element, eventName) {
-// write your code here
+  const { nodeName, id } = element;
+
+  return new Promise((resolve, reject) => {
+    element.addEventListener(eventName, (e) => {
+      resolve(
+        `It was ${eventName} on the element: ${nodeName}, id: ${id}.`
+      );
+    });
+  });
 }
 
 const printMessage = (message) => {
-// write your code here
+  getMessageBox().insertAdjacentHTML('afterbegin',
+    `<p class='message'>${message}</p>`
+  );
 };
 
 module.exports = {
