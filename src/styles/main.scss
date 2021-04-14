@@ -55,3 +55,12 @@ button {
   padding: 10px;
   left: 10px;
 }
+
+.messages {
+  padding: 15px;
+  display: flex;
+  background-color: lightblue;
+  border-radius: 10px;
+  flex-direction: column;
+  justify-content: center;
+}
