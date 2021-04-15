@@ -55,3 +55,12 @@ button {
   padding: 10px;
   left: 10px;
 }
+
+.container {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
