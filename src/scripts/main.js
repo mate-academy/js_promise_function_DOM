@@ -1,11 +1,24 @@
 'use strict';
 
+const form = document.querySelector('form');
+
 function waitFor(element, eventName) {
-// write your code here
+  return new Promise((resolve, reject) => {
+    element.addEventListener(eventName, () => {
+      const text = `It was ${eventName} on the element:
+       ${element.nodeName}, id: ${element.id}`;
+
+      resolve(text);
+    });
+  });
 }
 
 const printMessage = (message) => {
-// write your code here
+  form.insertAdjacentHTML('beforeend', `
+    <div class="message">
+      ${message}
+    </div>
+  `);
 };
 
 module.exports = {
