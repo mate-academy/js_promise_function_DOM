@@ -8,6 +8,7 @@ body {
   justify-content: center;
 
   min-height: 100vh;
+  position: relative;
 }
 
 form {
@@ -45,6 +46,12 @@ button {
   color: white;
   font-family: sans-serif;
   font-weight: 700;
+}
+
+.text-message {
+  position: absolute;
+  top: 50px;
+  right: 50px;
 }
 
 .message {
