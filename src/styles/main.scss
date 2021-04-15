@@ -47,6 +47,12 @@ button {
   font-weight: 700;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .message {
   border-radius: 15px;
   background-color: rgb(207, 202, 231);
