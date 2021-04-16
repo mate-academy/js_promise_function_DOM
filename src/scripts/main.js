@@ -3,7 +3,6 @@
 const div = document.createElement('div');
 
 document.body.append(div);
-div.className = 'block';
 
 function waitFor(element, eventName) {
   const promise = new Promise((resolve) => [
