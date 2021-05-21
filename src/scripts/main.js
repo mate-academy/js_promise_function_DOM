@@ -1,7 +1,5 @@
 'use strict';
 
-const body = document.body;
-
 function waitFor(element, eventName) {
   return new Promise((resolve, reject) => {
     element.addEventListener(eventName, e => {
@@ -18,7 +16,7 @@ const printMessage = (message) => {
 
   newMessage.innerText = message;
   newMessage.className = 'message';
-  body.append(newMessage);
+  document.body.append(newMessage);
 };
 
 module.exports = {
