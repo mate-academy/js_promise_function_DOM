@@ -1,11 +1,24 @@
 'use strict';
 
 function waitFor(element, eventName) {
-// write your code here
+  return new Promise((resolve) => {
+    element.addEventListener(eventName, () => {
+      const nodeName = element.nodeName;
+      const id = element.id;
+
+      resolve(
+        `It was ${eventName} on the element:${nodeName}, id: ${id}`
+      );
+    });
+  });
 }
 
 const printMessage = (message) => {
-// write your code here
+  const div = document.createElement('div');
+
+  div.innerText = message;
+  div.className = 'message';
+  document.body.append(div);
 };
 
 module.exports = {
