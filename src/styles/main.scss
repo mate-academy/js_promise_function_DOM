@@ -52,14 +52,18 @@ button {
   background-color: rgb(207, 202, 231);
   height: 30px;
   text-align: center;
+  justify-content: center;
   padding: 10px;
   left: 10px;
+  max-width: 360px;
   &__container {
     position: absolute;
-    flex-wrap: wrap;
+    left: 60px;
+    right: 60px;
+    width: 100%;
     top: 460px;
+    flex-wrap: wrap;
     display: flex;
-    flex-direction: column;
     gap: 25px;
     margin-bottom: 20px;
   }
