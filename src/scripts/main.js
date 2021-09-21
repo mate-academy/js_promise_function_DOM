@@ -1,5 +1,26 @@
 'use strict';
 
+const loginField = document.getElementById('login');
+const passwordField = document.getElementById('password');
+const button = document.getElementById('submit');
+
+function eventHandling(eventElement) {
+  if (eventElement.target === loginField
+    || eventElement.target === passwordField
+    || eventElement.target === button) {
+    waitFor(eventElement.target, eventElement.type).then(printMessage);
+  }
+}
+
+document.body.addEventListener('click',
+  (eventElement) => eventHandling(eventElement));
+
+document.body.addEventListener('input',
+  (eventElement) => eventHandling(eventElement));
+
+document.body.addEventListener('blur',
+  (eventElement) => eventHandling(eventElement), true);
+
 function waitFor(element, eventName) {
   const promise = new Promise((resolve) => {
     resolve(`
