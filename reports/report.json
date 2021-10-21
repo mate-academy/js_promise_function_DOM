@@ -1,0 +1,270 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 8,
+    "passes": 0,
+    "pending": 0,
+    "failures": 8,
+    "start": "2021-08-26T18:35:07.579Z",
+    "end": "2021-08-26T18:35:44.910Z",
+    "duration": 37094,
+    "testsRegistered": 8,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "db182884-7d62-4713-9326-d733d1ca7c25",
+      "title": "",
+      "fullFile": "cypress\\integration\\promiseFunction.spec.js",
+      "file": "cypress\\integration\\promiseFunction.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2704616c-bd0f-41ea-9233-0bd49948e060",
+          "title": "Promise function app",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should resolve 'click' promise for 'login' field",
+              "fullTitle": "Promise function app should resolve 'click' promise for 'login' field",
+              "timedOut": null,
+              "duration": 4776,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#login').click();\ncy.checkNotificationExists('click', 'INPUT', 'login');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find content: 'It was click on the element: INPUT, id: login.' but never did.",
+                "estack": "AssertionError: Timed out retrying: Expected to find content: 'It was click on the element: INPUT, id: login.' but never did.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\\integration\\promiseFunction.spec.js:100:105)",
+                "diff": null
+              },
+              "uuid": "bdf8fd0a-c563-4540-8edb-fc58a8801cdb",
+              "parentUUID": "2704616c-bd0f-41ea-9233-0bd49948e060",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should resolve 'input' promise for 'login' field",
+              "fullTitle": "Promise function app should resolve 'input' promise for 'login' field",
+              "timedOut": null,
+              "duration": 4732,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#login').type('login');\ncy.checkNotificationExists('input', 'INPUT', 'login');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find content: 'It was input on the element: INPUT, id: login.' but never did.",
+                "estack": "AssertionError: Timed out retrying: Expected to find content: 'It was input on the element: INPUT, id: login.' but never did.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\\integration\\promiseFunction.spec.js:100:105)",
+                "diff": null
+              },
+              "uuid": "446a2fcd-e400-4023-acc0-8ef585e1ad5d",
+              "parentUUID": "2704616c-bd0f-41ea-9233-0bd49948e060",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should resolve 'blur' promise for 'login' field",
+              "fullTitle": "Promise function app should resolve 'blur' promise for 'login' field",
+              "timedOut": null,
+              "duration": 4616,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#login').click().blur();\ncy.checkNotificationExists('blur', 'INPUT', 'login');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find content: 'It was blur on the element: INPUT, id: login.' but never did.",
+                "estack": "AssertionError: Timed out retrying: Expected to find content: 'It was blur on the element: INPUT, id: login.' but never did.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\\integration\\promiseFunction.spec.js:100:105)",
+                "diff": null
+              },
+              "uuid": "e56c8d94-db3e-4c37-8721-11208b008488",
+              "parentUUID": "2704616c-bd0f-41ea-9233-0bd49948e060",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should resolve 'click' promise for 'password' field",
+              "fullTitle": "Promise function app should resolve 'click' promise for 'password' field",
+              "timedOut": null,
+              "duration": 4571,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#password').click();\ncy.checkNotificationExists('click', 'INPUT', 'password');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find content: 'It was click on the element: INPUT, id: password.' but never did.",
+                "estack": "AssertionError: Timed out retrying: Expected to find content: 'It was click on the element: INPUT, id: password.' but never did.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\\integration\\promiseFunction.spec.js:100:105)",
+                "diff": null
+              },
+              "uuid": "b6ebbc8b-1574-4940-a0d5-3f5eceda37c0",
+              "parentUUID": "2704616c-bd0f-41ea-9233-0bd49948e060",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should resolve 'input' promise for 'password' field",
+              "fullTitle": "Promise function app should resolve 'input' promise for 'password' field",
+              "timedOut": null,
+              "duration": 4653,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#password').type('login');\ncy.checkNotificationExists('input', 'INPUT', 'password');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find content: 'It was input on the element: INPUT, id: password.' but never did.",
+                "estack": "AssertionError: Timed out retrying: Expected to find content: 'It was input on the element: INPUT, id: password.' but never did.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\\integration\\promiseFunction.spec.js:100:105)",
+                "diff": null
+              },
+              "uuid": "f8e3d286-28a6-4727-8550-812f82265085",
+              "parentUUID": "2704616c-bd0f-41ea-9233-0bd49948e060",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should resolve 'blur' promise for 'password' field",
+              "fullTitle": "Promise function app should resolve 'blur' promise for 'password' field",
+              "timedOut": null,
+              "duration": 4593,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#password').click().blur();\ncy.checkNotificationExists('blur', 'INPUT', 'password');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find content: 'It was blur on the element: INPUT, id: password.' but never did.",
+                "estack": "AssertionError: Timed out retrying: Expected to find content: 'It was blur on the element: INPUT, id: password.' but never did.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\\integration\\promiseFunction.spec.js:100:105)",
+                "diff": null
+              },
+              "uuid": "46bf8158-329c-41bb-af25-773556b37f48",
+              "parentUUID": "2704616c-bd0f-41ea-9233-0bd49948e060",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should resolve 'click' promise for 'submit' button",
+              "fullTitle": "Promise function app should resolve 'click' promise for 'submit' button",
+              "timedOut": null,
+              "duration": 4543,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#submit').click();\ncy.checkNotificationExists('click', 'BUTTON', 'submit');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find content: 'It was click on the element: BUTTON, id: submit.' but never did.",
+                "estack": "AssertionError: Timed out retrying: Expected to find content: 'It was click on the element: BUTTON, id: submit.' but never did.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\\integration\\promiseFunction.spec.js:100:105)",
+                "diff": null
+              },
+              "uuid": "58816c61-397f-4793-9a8c-100909ccb29f",
+              "parentUUID": "2704616c-bd0f-41ea-9233-0bd49948e060",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should resolve 'blur' promise for 'submit' button",
+              "fullTitle": "Promise function app should resolve 'blur' promise for 'submit' button",
+              "timedOut": null,
+              "duration": 4610,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#submit').click().blur();\ncy.checkNotificationExists('blur', 'BUTTON', 'submit');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find content: 'It was blur on the element: BUTTON, id: submit.' but never did.",
+                "estack": "AssertionError: Timed out retrying: Expected to find content: 'It was blur on the element: BUTTON, id: submit.' but never did.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\\integration\\promiseFunction.spec.js:100:105)",
+                "diff": null
+              },
+              "uuid": "0c2d8bf8-5fbf-4f9d-b054-618ea14920c3",
+              "parentUUID": "2704616c-bd0f-41ea-9233-0bd49948e060",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "bdf8fd0a-c563-4540-8edb-fc58a8801cdb",
+            "446a2fcd-e400-4023-acc0-8ef585e1ad5d",
+            "e56c8d94-db3e-4c37-8721-11208b008488",
+            "b6ebbc8b-1574-4940-a0d5-3f5eceda37c0",
+            "f8e3d286-28a6-4727-8550-812f82265085",
+            "46bf8158-329c-41bb-af25-773556b37f48",
+            "58816c61-397f-4793-9a8c-100909ccb29f",
+            "0c2d8bf8-5fbf-4f9d-b054-618ea14920c3"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 37094,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "raw_reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}
