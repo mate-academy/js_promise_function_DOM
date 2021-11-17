@@ -48,10 +48,16 @@ button {
 }
 
 .message {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+
+  padding: 20px;
+  border: 2px solid #b1a47e;
   border-radius: 15px;
-  background-color: rgb(207, 202, 231);
-  height: 30px;
+
+  color: #544003;
+  background-color: #c0b788;
+  
   text-align: center;
-  padding: 10px;
-  left: 10px;
 }
