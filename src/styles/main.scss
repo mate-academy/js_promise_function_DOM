@@ -52,6 +52,19 @@ button {
   background-color: rgb(207, 202, 231);
   height: 30px;
   text-align: center;
+  justify-content: center;
   padding: 10px;
   left: 10px;
+  max-width: 360px;
+  &__container {
+    position: absolute;
+    left: 60px;
+    right: 60px;
+    width: 100%;
+    top: 70%;
+    flex-wrap: wrap;
+    display: flex;
+    gap: 25px;
+    margin-bottom: 20px;
+  }
 }
