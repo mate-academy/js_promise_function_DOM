@@ -4,6 +4,7 @@ body {
   margin: 0;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
@@ -36,6 +37,7 @@ input {
 }
 
 button {
+  margin-bottom: 16px;
   background-color: #e25544;
   height: 38px;
   border-radius: 19px;
@@ -48,6 +50,7 @@ button {
 }
 
 .message {
+  margin-bottom: 8px;
   border-radius: 15px;
   background-color: rgb(207, 202, 231);
   height: 30px;
