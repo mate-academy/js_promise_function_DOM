@@ -4,6 +4,7 @@ body {
   margin: 0;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
@@ -54,4 +55,12 @@ button {
   text-align: center;
   padding: 10px;
   left: 10px;
+}
+
+.info {
+  position: absolute;
+  top: 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
