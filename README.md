@@ -10,8 +10,8 @@ For your convenience we added several inputs and buttons on the page and used `w
 so you can click and type to check if your code works as expected (you should see messages for `click`, `input` and `blur` events).
 
 ## Instructions
-1. Replace `<your_account>` with your Github username in the link
-    - [DEMO LINK](https://<your_account>.github.io/js_promise_function_DOM/)
+1. Replace `<focushuk>` with your Github username in the link
+    - [DEMO LINK](https://focushuk.github.io/js_promise_function_DOM/)
 2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
     - Run `npm run test` command to test your code;
     - Run `npm run test:only -- -n` to run fast test ignoring linter;
