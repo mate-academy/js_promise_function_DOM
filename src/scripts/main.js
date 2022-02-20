@@ -15,7 +15,7 @@ const printMessage = (message) => {
   const messageElement = document.createElement('div');
 
   messageElement.classList.add('message');
-  messageElement.innerHTML = message;
+  messageElement.textContent = message;
   document.body.append(messageElement);
 };
 
