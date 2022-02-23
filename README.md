@@ -11,7 +11,7 @@ so you can click and type to check if your code works as expected (you should se
 
 ## Instructions
 1. Replace `<your_account>` with your Github username in the link
-    - [DEMO LINK](https://<your_account>.github.io/js_promise_function_DOM/)
+    - [DEMO LINK](https://k-romakovalchuk.github.io/js_promise_function_DOM/)
 2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
     - Run `npm run test` command to test your code;
     - Run `npm run test:only -- -n` to run fast test ignoring linter;
