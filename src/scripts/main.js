@@ -2,17 +2,7 @@
 
 function waitFor(element, eventName) {
   return new Promise((resolve, reject) => {
-    element.addEventListener('click', (e) => {
-      resolve(`${eventName} on the element: 
-      ${e.target.nodeName}, id: ${e.target.id}`);
-    });
-
-    element.addEventListener('contextmenu', (e) => {
-      resolve(`${eventName} on the element: 
-      ${e.target.nodeName}, id: ${e.target.id}`);
-    });
-
-    element.addEventListener('blur', (e) => {
+    element.addEventListener(eventName, (e) => {
       resolve(`${eventName} on the element: 
       ${e.target.nodeName}, id: ${e.target.id}`);
     });
