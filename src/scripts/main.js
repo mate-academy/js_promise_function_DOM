@@ -2,9 +2,9 @@
 
 function waitFor(element, eventName) {
   const resolver = (resolve) => {
-    element.addEventListener(eventName, (e) => {
+    element.addEventListener(eventName, () => {
       const message
-        = `It was ${eventName} on the element: ${element.nodeName},`
+        = `It was ${eventName} on the element: ${element.nodeName}, `
         + `id: ${element.id}`;
 
       return resolve(message);
