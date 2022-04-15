@@ -48,6 +48,8 @@ button {
 }
 
 .message {
+  position: absolute;
+  top: 10%;
   border-radius: 15px;
   background-color: rgb(207, 202, 231);
   height: 30px;
