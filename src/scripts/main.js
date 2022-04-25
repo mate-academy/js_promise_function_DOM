@@ -2,11 +2,9 @@
 
 function waitFor(element, eventName) {
   return new Promise((resolve) => {
-    element.addEventListener(`${eventName}`, () => {
-      resolve(`
-        It was ${eventName} on the element:
-        ${element.nodeName}, id: ${element.id}
-      `);
+    element.addEventListener(eventName, () => {
+      resolve(`It was ${eventName} on the element:
+        ${element.nodeName}, id: ${element.id}`);
     });
   });
 };
@@ -18,6 +16,10 @@ const printMessage = (message) => {
   div.innerText = message;
 
   document.body.append(div);
+
+  setTimeout(() => {
+    div.remove();
+  }, 1000);
 };
 
 module.exports = {
