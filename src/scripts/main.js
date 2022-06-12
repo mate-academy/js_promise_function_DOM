@@ -1,11 +1,26 @@
 'use strict';
 
 function waitFor(element, eventName) {
-// write your code here
+  return new Promise(resolve => {
+    element.addEventListener(eventName, () => {
+      // eslint-disable-next-line
+      resolve(`It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`);
+    });
+  });
 }
 
 const printMessage = (message) => {
-// write your code here
+  const div = document.createElement('div');
+  const body = document.querySelector('body');
+  const previousMessage = document.querySelector('.message');
+
+  div.className = 'message';
+  div.innerText = message;
+
+  if (previousMessage) {
+    previousMessage.remove();
+  }
+  body.append(div);
 };
 
 module.exports = {
