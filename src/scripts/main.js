@@ -1,5 +1,7 @@
 'use strict';
 
+const body = document.querySelector('body');
+
 function waitFor(element, eventName) {
   return new Promise((resolve, reject) => {
     element.addEventListener(eventName, () => {
@@ -10,7 +12,10 @@ function waitFor(element, eventName) {
 }
 
 const printMessage = (message) => {
-  const body = document.querySelector('body');
+  if (body.querySelector('.message')) {
+    body.querySelector('.message').remove();
+  }
+
   const notification = document.createElement('div');
 
   notification.className = 'message';
