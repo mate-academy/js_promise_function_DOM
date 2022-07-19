@@ -12,10 +12,6 @@ function waitFor(element, eventName) {
 }
 
 const printMessage = (message) => {
-  if (body.querySelector('.message')) {
-    body.querySelector('.message').remove();
-  }
-
   const notification = document.createElement('div');
 
   notification.className = 'message';
