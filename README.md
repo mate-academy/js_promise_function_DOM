@@ -9,6 +9,16 @@ Also create a function `printMessage` that takes a string `message` and adds `<d
 For your convenience we added several inputs and buttons on the page and used `waitFor` and `printMessage` in the `callPromise.js` 
 so you can click and type to check if your code works as expected (you should see messages for `click`, `input` and `blur` events).
 
+Создайте функцию `waitFor`, которая принимает `элемент` DOM и строку `eventName`, такую ​​как `click`, `contextmenu` или `blur`.
+Функция возвращает promise, которое должно быть **resolved**, когда событие `eventName` произошло в `элементе` с сообщением
+`It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`
+(Например: `It was click on the element: INPUT, id: login.`)
+
+Также создайте функцию `printMessage`, которая принимает строку `message` и добавляет `<div class="message">` с `message` в DOM.
+
+Для вашего удобства мы добавили несколько входов и кнопок на страницу и использовали `waitFor` и `printMessage` в `callPromise.js`
+поэтому вы можете щелкнуть и ввести, чтобы проверить, работает ли ваш код должным образом (вы должны увидеть сообщения для событий `click`, `input` и `blur`).
+
 ## Instructions
 1. Replace `<your_account>` with your Github username in the link
     - [DEMO LINK](https://<your_account>.github.io/js_promise_function_DOM/)
