@@ -10,13 +10,13 @@ function waitFor(element, eventName) {
 }
 
 const printMessage = (message) => {
-  const div = document.createElement('div');
   const body = document.querySelector('body');
 
   body.insertAdjacentHTML('beforeend', `
-  <div class="message">${message}</div>
+  <div class="message">
+    ${message}
+  </div>
   `);
-  body.append(div);
 };
 
 module.exports = {
