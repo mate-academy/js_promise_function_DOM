@@ -54,4 +54,11 @@ button {
   text-align: center;
   padding: 10px;
   left: 10px;
+  position: absolute;
+}
+
+@for $n from 1 through 8 {
+  .message:nth-of-type(#{$n}) {
+    top: $n * 80px;
+  }
 }
