@@ -12,7 +12,6 @@ function waitFor(element, eventName) {
         ${eventName} on the element: 
         ${element.nodeName}, id: 
         ${element.id}.`;
-
       resolve(message);
     });
   });
