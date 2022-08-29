@@ -7,11 +7,10 @@ document.body.append(notification);
 function waitFor(element, eventName) {
 // write your code here
   return new Promise((resolve, reject) => {
-    element.addEventListener(eventName, () => {
-      const message = `It was 
-        ${eventName} on the element: 
-        ${element.nodeName}, id: 
-        ${element.id}.`;
+    element.addEventListener(`${eventName}`, () => {
+      const message = `It was ${eventName} on the element: 
+        ${element.nodeName}, id: ${element.id}.`;
+
       resolve(message);
     });
   });
