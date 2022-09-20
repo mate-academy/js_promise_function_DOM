@@ -1,11 +1,23 @@
+/* eslint-disable no-shadow */
 'use strict';
 
 function waitFor(element, eventName) {
-// write your code here
+  return new Promise((resolve, reject) => {
+    element.addEventListener(eventName, (event) => {
+      resolve(`It was ${eventName} on the element: `
+      + `${event.target.nodeName}, id: ${event.target.id}.`);
+    });
+  });
 }
 
 const printMessage = (message) => {
-// write your code here
+  const element = document.createElement('div');
+
+  element.className = 'message';
+
+  element.textContent = message;
+
+  document.body.append(element);
 };
 
 module.exports = {
