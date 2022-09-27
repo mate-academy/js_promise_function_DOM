@@ -1,11 +1,27 @@
 'use strict';
 
 function waitFor(element, eventName) {
-// write your code here
+  const result = new Promise((resolve, reject) => {
+    element.addEventListener(eventName, (evt) => {
+      if (evt.target === element) {
+        resolve(`
+        It was ${eventName} on the element:
+        ${element.nodeName}, id: ${element.id}
+        `);
+        console.log(result);
+      }
+    });
+  });
+
+  return result;
 }
 
 const printMessage = (message) => {
-// write your code here
+  document.body.insertAdjacentHTML('afterbegin', `
+  <div class="message">
+    ${message}
+  </div>
+`);
 };
 
 module.exports = {
