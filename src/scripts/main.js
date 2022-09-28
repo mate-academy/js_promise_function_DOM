@@ -1,10 +1,8 @@
 'use strict';
 
-const body = document.querySelector('body');
-
 function waitFor(element, eventName) {
-  const promise = new Promise((resolve, reject) => {
-    body.addEventListener(eventName, () => {
+  const promise = new Promise((resolve) => {
+    element.addEventListener(eventName, () => {
       resolve(`It was ${eventName} on the element:
        ${element.nodeName}, id: ${element.id}.`);
     });
@@ -14,7 +12,7 @@ function waitFor(element, eventName) {
 };
 
 const printMessage = (message) => {
-  body.insertAdjacentHTML('beforeend',
+  document.body.insertAdjacentHTML('beforeend',
     `<div class="message">${message}</div>`);
 };
 
