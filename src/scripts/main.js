@@ -1,7 +1,5 @@
 'use strict';
 
-const root = document.querySelector('body');
-
 function waitFor(el, ev) {
   return new Promise((resolve) => {
     el.addEventListener(ev, () =>
@@ -10,7 +8,7 @@ function waitFor(el, ev) {
 }
 
 const printMessage = (msg) => {
-  root.insertAdjacentHTML('beforeend', `<div class="message">${msg}</div>`);
+  document.body.insertAdjacentHTML('beforeend', `<div class="message">${msg}</div>`);
 };
 
 module.exports = {
