@@ -8,7 +8,8 @@ function waitFor(el, ev) {
 }
 
 const printMessage = (msg) => {
-  document.body.insertAdjacentHTML('beforeend', `<div class="message">${msg}</div>`);
+  document.body.insertAdjacentHTML('beforeend', `
+    <div class="message">${msg}</div>`);
 };
 
 module.exports = {
