@@ -47,6 +47,11 @@ button {
   font-weight: 700;
 }
 
+.messages{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .message {
   border-radius: 15px;
   background-color: rgb(207, 202, 231);
