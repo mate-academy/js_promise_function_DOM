@@ -4,7 +4,7 @@ function waitFor(element, eventName) {
   return new Promise((resolve, reject) => {
     element.addEventListener(eventName, () => {
       const message = `It was ${eventName} on the element: `
-        + `${element.nodeName}, id: ${element.id}`;
+        + `${element.nodeName}, id: ${element.id}.`;
 
       resolve(message);
     });
