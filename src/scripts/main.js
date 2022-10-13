@@ -19,7 +19,7 @@ const printMessage = (message) => {
     <div class="message">
       ${message}
     </div>
-    `;
+  `;
 
   generalBox.insertAdjacentHTML('beforeend', messageBox);
 };
