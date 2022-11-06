@@ -7,14 +7,15 @@ function waitFor(element, eventName) {
       + `on the element: ${element.nodeName}, id: ${element.id}.`);
     });
   });
+
 }
 
 const printMessage = (message) => {
-  document.body.innerHTML += `
+  document.body.insertAdjacentHTML('beforeend', `
   <div class="message">
     ${message}
   </div>
-  `;
+  `);
 };
 
 module.exports = {
