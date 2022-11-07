@@ -6,6 +6,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 
   min-height: 100vh;
 }
@@ -14,6 +15,7 @@ form {
   width: 300px;
   display: flex;
   flex-direction: column;
+  margin-top: 30px;
 }
 
 label {
@@ -50,8 +52,10 @@ button {
 .message {
   border-radius: 15px;
   background-color: rgb(207, 202, 231);
-  height: 30px;
+  height: max-content;
+  width: max-content;
   text-align: center;
-  padding: 10px;
-  left: 10px;
+  padding: 15px;
+  margin: 5px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

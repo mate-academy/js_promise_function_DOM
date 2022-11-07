@@ -1,11 +1,25 @@
 'use strict';
 
 function waitFor(element, eventName) {
-// write your code here
+  return new Promise(resolve => {
+    document.body.addEventListener('contextmenu', (ev) => {
+      ev.preventDefault();
+    });
+
+    element.addEventListener(eventName, () => {
+      resolve(`
+        It was ${eventName} on the element:${element.nodeName},
+        id: ${element.id}`);
+    });
+  });
 }
 
 const printMessage = (message) => {
-// write your code here
+  document.body.insertAdjacentHTML('afterbegin', `
+    <div class="message">
+      ${message}
+    </div>
+  `);
 };
 
 module.exports = {
