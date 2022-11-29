@@ -47,11 +47,23 @@ button {
   font-weight: 700;
 }
 
+.messages-container {
+  position: absolute;
+  top: 100px;
+  right: 100px;
+  display: grid;
+  justify-items: end;
+  gap: 24px;
+}
+
 .message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   border-radius: 15px;
   background-color: rgb(207, 202, 231);
-  height: 30px;
-  text-align: center;
+  height: 60px;
   padding: 10px;
-  left: 10px;
+  box-sizing: border-box;
 }
