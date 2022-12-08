@@ -55,3 +55,9 @@ button {
   padding: 10px;
   left: 10px;
 }
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
