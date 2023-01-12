@@ -5,7 +5,7 @@ function waitFor(element, eventName) {
     element.addEventListener(eventName, () => {
       resolve(`It was ${eventName}
         on the element: ${element.nodeName},
-        id: ${element.id}`);
+        id: ${element.id}.`);
     });
   });
 }
@@ -17,10 +17,6 @@ const printMessage = (message) => {
   div.classList.add('message');
   div.innerText = message;
   body.append(div);
-
-  return new Promise((resolve) => {
-    resolve();
-  });
 };
 
 module.exports = {
