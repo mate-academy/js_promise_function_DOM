@@ -2,32 +2,29 @@
 
 function waitFor(element, eventName) {
   return new Promise(resolve => {
-    document.addEventListener(`${eventName}`, (evt) => {
+    const message = `It was ${eventName} on the element: `
+      + `${element.nodeName}, id: ${element.id}`;
+
+    document.addEventListener(eventName, (evt) => {
       const elementToClick = evt.target;
 
       if (element === elementToClick) {
-        resolve(`
-          It was ${eventName} on the element:
-          ${elementToClick.nodeName}, id: ${elementToClick.id}.
-        `);
+        resolve(message);
       }
     });
   });
 }
 
 const printMessage = (message) => {
-  createElement(message);
+  const div = document.createElement('div');
+  const body = document.querySelector('body');
+
+  div.classList.add('message');
+  div.innerText = message;
+  body.append(div);
 };
 
 module.exports = {
   waitFor,
   printMessage,
 };
-
-function createElement(message) {
-  document.body.insertAdjacentHTML('beforeend', `
-    <div class="message">
-      ${message};
-    </div>
-  `);
-}
