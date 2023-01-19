@@ -13,8 +13,6 @@ function waitFor(element, eventName) {
 }
 
 const printMessage = (message) => {
-  // const bodyElement = document.querySelector('body');
-
   document.querySelector('body').insertAdjacentHTML('beforeend', `
       <div class="message">
         ${message}
