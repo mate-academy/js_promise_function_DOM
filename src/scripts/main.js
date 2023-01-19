@@ -1,7 +1,5 @@
 'use strict';
 
-const body = document.body;
-
 function waitFor(element, eventName) {
   return new Promise((resolve) => {
     element.addEventListener(eventName, () => {
@@ -15,7 +13,7 @@ function waitFor(element, eventName) {
 }
 
 const printMessage = (message) => {
-  body.insertAdjacentHTML('afterbegin', `
+  document.body.insertAdjacentHTML('afterbegin', `
     <div class="message">
       ${message}
     </div>
