@@ -5,7 +5,7 @@ function waitFor(element, eventName) {
     element.addEventListener(eventName, e => {
       resolve(`
         It was ${eventName} on the element: ${element.nodeName},
-        id: ${element.id}
+        id: ${element.id}.
       `);
     });
   };
