@@ -1,0 +1,243 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 8,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2021-04-08T13:28:19.195Z",
+    "end": "2021-04-08T13:28:21.287Z",
+    "duration": 1456,
+    "testsRegistered": 8,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 7,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "34aeca78-3d97-47ed-91f1-22cd11fefe3f",
+      "title": "",
+      "fullFile": "cypress\\integration\\promiseFunction.spec.js",
+      "file": "cypress\\integration\\promiseFunction.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7378737a-aeda-422d-80e3-03e4b05b7a7f",
+          "title": "Promise function app",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should resolve 'click' promise for 'login' field",
+              "fullTitle": "Promise function app should resolve 'click' promise for 'login' field",
+              "timedOut": null,
+              "duration": 1456,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#login').click();\ncy.checkNotificationExists('click', 'INPUT', 'login');",
+              "err": {
+                "message": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://localhost:8080/\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Promise function app`",
+                "estack": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://localhost:8080/\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Promise function app`\n    at http://localhost:8080/__cypress/runner/cypress_runner.js:157791:25\n    at visitFailedByErr (http://localhost:8080/__cypress/runner/cypress_runner.js:157162:12)\n    at http://localhost:8080/__cypress/runner/cypress_runner.js:157771:13\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:10325:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:8260:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:8317:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:8362:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:8438:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:5032:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:5025:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:5041:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:4911:14)\nFrom Your Spec Code:\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\\integration\\promiseFunction.spec.js:104:8)",
+                "diff": null
+              },
+              "uuid": "f4e46007-84be-41a2-b8dd-1f9ea3425deb",
+              "parentUUID": "7378737a-aeda-422d-80e3-03e4b05b7a7f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should resolve 'input' promise for 'login' field",
+              "fullTitle": "Promise function app should resolve 'input' promise for 'login' field",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#login').type('login');\ncy.checkNotificationExists('input', 'INPUT', 'login');",
+              "err": {},
+              "uuid": "6759b136-0d6e-46dc-890a-a68c98cd8cd7",
+              "parentUUID": "7378737a-aeda-422d-80e3-03e4b05b7a7f",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "should resolve 'blur' promise for 'login' field",
+              "fullTitle": "Promise function app should resolve 'blur' promise for 'login' field",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#login').click().blur();\ncy.checkNotificationExists('blur', 'INPUT', 'login');",
+              "err": {},
+              "uuid": "1265960a-b773-497e-9c6e-2ef333f0b2a4",
+              "parentUUID": "7378737a-aeda-422d-80e3-03e4b05b7a7f",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "should resolve 'click' promise for 'password' field",
+              "fullTitle": "Promise function app should resolve 'click' promise for 'password' field",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#password').click();\ncy.checkNotificationExists('click', 'INPUT', 'password');",
+              "err": {},
+              "uuid": "f50664f3-4fb5-40c2-b425-daa42dcd5bc8",
+              "parentUUID": "7378737a-aeda-422d-80e3-03e4b05b7a7f",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "should resolve 'input' promise for 'password' field",
+              "fullTitle": "Promise function app should resolve 'input' promise for 'password' field",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#password').type('login');\ncy.checkNotificationExists('input', 'INPUT', 'password');",
+              "err": {},
+              "uuid": "68f0d839-c513-4717-a424-2dbb41a86bb8",
+              "parentUUID": "7378737a-aeda-422d-80e3-03e4b05b7a7f",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "should resolve 'blur' promise for 'password' field",
+              "fullTitle": "Promise function app should resolve 'blur' promise for 'password' field",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#password').click().blur();\ncy.checkNotificationExists('blur', 'INPUT', 'password');",
+              "err": {},
+              "uuid": "04f2dbb9-4681-4af7-91b5-2160b36c7518",
+              "parentUUID": "7378737a-aeda-422d-80e3-03e4b05b7a7f",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "should resolve 'click' promise for 'submit' button",
+              "fullTitle": "Promise function app should resolve 'click' promise for 'submit' button",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#submit').click();\ncy.checkNotificationExists('click', 'BUTTON', 'submit');",
+              "err": {},
+              "uuid": "e561cc65-5152-4b03-ad3d-b3d9ec583d74",
+              "parentUUID": "7378737a-aeda-422d-80e3-03e4b05b7a7f",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "should resolve 'blur' promise for 'submit' button",
+              "fullTitle": "Promise function app should resolve 'blur' promise for 'submit' button",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#submit').click().blur();\ncy.checkNotificationExists('blur', 'BUTTON', 'submit');",
+              "err": {},
+              "uuid": "d18d9984-258c-4b88-8da3-932da809bb56",
+              "parentUUID": "7378737a-aeda-422d-80e3-03e4b05b7a7f",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "f4e46007-84be-41a2-b8dd-1f9ea3425deb"
+          ],
+          "pending": [],
+          "skipped": [
+            "6759b136-0d6e-46dc-890a-a68c98cd8cd7",
+            "1265960a-b773-497e-9c6e-2ef333f0b2a4",
+            "f50664f3-4fb5-40c2-b425-daa42dcd5bc8",
+            "68f0d839-c513-4717-a424-2dbb41a86bb8",
+            "04f2dbb9-4681-4af7-91b5-2160b36c7518",
+            "e561cc65-5152-4b03-ad3d-b3d9ec583d74",
+            "d18d9984-258c-4b88-8da3-932da809bb56"
+          ],
+          "duration": 1456,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "raw_reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}
