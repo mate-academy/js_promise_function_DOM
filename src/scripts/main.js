@@ -4,8 +4,8 @@ function waitFor(element, eventName) {
   return new Promise((resolve) => {
     element.addEventListener(eventName, (eventClick) => {
       if (eventClick.target === element) {
-        resolve(`Это было ${eventName}`
-        + ` в элементе: ${element.nodeName}, id: ${element.id}.`);
+        resolve(`It was ${eventName} on the element:
+          ${element.nodeName}, id: ${element.id}.`);
       }
     });
   });
