@@ -12,7 +12,7 @@ function waitFor(element, eventName) {
 const printMessage = (message) => {
   const div = document.createElement('div');
 
-  div.className('message');
+  div.className = 'message';
   div.innerHTML(message);
   document.body.append(div);
 };
