@@ -21,6 +21,11 @@ const printMessage = (message) => {
   messageDiv.textContent = message;
 };
 
+const myButton = document.getElementById('my-button');
+
+waitFor(myButton, 'click')
+  .then(message => printMessage(message));
+
 module.exports = {
   waitFor,
   printMessage,
