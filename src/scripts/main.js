@@ -15,6 +15,8 @@ function waitFor(element, eventName) {
 
 function printMessage(message) {
   elementDom.classList.add('message');
+  elementDom.style.position = 'absolute';
+  elementDom.style.top = '10px';
   elementDom.textContent = message;
 }
 
