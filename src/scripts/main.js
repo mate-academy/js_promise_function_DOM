@@ -1,12 +1,24 @@
 'use strict';
 
+const elementDom = document.createElement('div');
+
+document.querySelector('form').append(elementDom);
+
 function waitFor(element, eventName) {
-// write your code here
+  return new Promise((resolve) => {
+    element.addEventListener(eventName, () => {
+      resolve(`It was ${eventName} on the element:
+      ${element.nodeName}, id: ${element.id}.`);
+    });
+  });
 }
 
-const printMessage = (message) => {
-// write your code here
-};
+function printMessage(message) {
+  elementDom.classList.add('message');
+  elementDom.style.position = 'absolute';
+  elementDom.style.top = '10px';
+  elementDom.textContent = message;
+}
 
 module.exports = {
   waitFor,
