@@ -4,7 +4,7 @@ function waitFor(element, eventName) {
   // write your code here
   return new Promise((resolve) => {
     element.addEventListener(`${eventName}`, (e) => {
-      resolve(`It was click on the element:
+      resolve(`It was ${eventName} on the element:
         ${element.tagName.toUpperCase()}, id: ${element.id}.`);
     });
   });
