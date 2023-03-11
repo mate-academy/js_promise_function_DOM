@@ -1,11 +1,21 @@
 'use strict';
 
 function waitFor(element, eventName) {
-// write your code here
+  return new Promise((resolve, reject) => {
+    const form = document.querySelector('form');
+
+    form.addEventListener('click', (e) => {
+      resolve(`It was ${eventName}
+      on the element: ${element.nodeName},
+      id: ${element.id}`);
+    });
+  }).then().catch();
 }
 
 const printMessage = (message) => {
-// write your code here
+  document.body.insertAdjacentHTML('beforeend',
+    `<div class="message"> ${message} </div>`
+  );
 };
 
 module.exports = {
