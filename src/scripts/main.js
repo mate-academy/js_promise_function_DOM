@@ -1,15 +1,13 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  return new Promise((resolve, reject) => {
-    const form = document.querySelector('form');
-
-    form.addEventListener('click', (e) => {
+  return new Promise((resolve) => {
+    element.addEventListener(eventName, () => {
       resolve(`It was ${eventName}
       on the element: ${element.nodeName},
       id: ${element.id}`);
     });
-  }).then().catch();
+  });
 }
 
 const printMessage = (message) => {
