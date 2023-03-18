@@ -1,23 +1,19 @@
 'use strict';
 
 const printMessage = (message) => {
-  const box1 = document.createElement('div');
+  const box = document.createElement('div');
 
-  document.body.appendChild(box1);
-  box1.className += 'message';
-  box1.textContent = `${message}`;
+  document.body.appendChild(box);
+  box.className += 'message';
+  box.textContent = `${message}`;
 };
 
 function waitFor(element, eventName) {
-  const promise1 = new Promise((resolve, reject) => {
-    element.addEventListener(eventName, (click) => {
-      resolve(`It was ${eventName} on the element:
-        ${element.nodeName}, id: ${element.id}.`);
+  return new Promise((resolve, reject) => {
+    element.addEventListener(eventName, () => {
+      printMessage(`It was ${eventName} on the element:
+      ${element.nodeName}, id: ${element.id}.`);
     });
-  });
-
-  promise1.then((message) => {
-    printMessage(message);
   });
 }
 
