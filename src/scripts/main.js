@@ -1,12 +1,25 @@
 'use strict';
 
-function waitFor(element, eventName) {
-// write your code here
-}
-
 const printMessage = (message) => {
-// write your code here
+  const box1 = document.createElement('div');
+
+  document.body.appendChild(box1);
+  box1.className += 'message';
+  box1.textContent = `${message}`;
 };
+
+function waitFor(element, eventName) {
+  const promise1 = new Promise((resolve, reject) => {
+    element.addEventListener(eventName, (click) => {
+      resolve(`It was ${eventName} on the element:
+        ${element.nodeName}, id: ${element.id}.`);
+    });
+  });
+
+  promise1.then((message) => {
+    printMessage(message);
+  });
+}
 
 module.exports = {
   waitFor,
