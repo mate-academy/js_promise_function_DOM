@@ -13,6 +13,7 @@ function waitFor(element, eventName) {
 
 const printMessage = (message) => {
   let div = document.querySelector('.message');
+
   if (div) {
     div.textContent = message;
   } else {
