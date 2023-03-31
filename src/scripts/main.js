@@ -11,8 +11,13 @@ function waitFor(element, eventName) {
   });
 }
 
+let div;
+
 const printMessage = (message) => {
-  let div = document.querySelector('.message');
+  document.body.insertAdjacentHTML(
+    'beforeend',
+    `<div class="message">${message}</div>`
+  );
 
   if (div) {
     div.textContent = message;
