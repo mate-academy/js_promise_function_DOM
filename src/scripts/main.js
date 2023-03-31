@@ -11,24 +11,18 @@ function waitFor(element, eventName) {
   });
 }
 
-let div;
-
 const printMessage = (message) => {
-  document.body.insertAdjacentHTML(
-    'beforeend',
-    `<div class="message">${message}</div>`
-  );
+  let div = document.querySelector('.message');
 
   if (div) {
     div.textContent = message;
   } else {
-    div = document.createElement('div');
-
-    div.classList.add('message');
-    div.textContent = message;
-    document.body.appendChild(div);
+    document.body.insertAdjacentHTML(
+      'beforeend',
+      `<div class="message">${message}</div>`
+    );
   };
-};
+}; 
 
 module.exports = {
   waitFor,
