@@ -12,17 +12,12 @@ function waitFor(element, eventName) {
 }
 
 const printMessage = (message) => {
-  let div = document.querySelector('.message');
+  const notification = document.createElement('div');
 
-  if (div) {
-    div.textContent = message;
-  } else {
-    document.body.insertAdjacentHTML(
-      'beforeend',
-      `<div class="message">${message}</div>`
-    );
-  };
-}; 
+  notification.className = 'message';
+  notification.textContent = message;
+  document.body.append(notification);
+};
 
 module.exports = {
   waitFor,
