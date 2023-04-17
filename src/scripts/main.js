@@ -10,11 +10,11 @@ function waitFor(element, eventName) {
 }
 
 const printMessage = (message) => {
-  const div = document.createElement('div');
+  const messageBox = document.createElement('div');
 
-  div.classList.add('message');
-  div.textContent = message;
-  document.querySelector('body').appendChild(div);
+  messageBox.classList.add('message');
+  messageBox.textContent = message;
+  document.querySelector('body').appendChild(messageBox);
 };
 
 module.exports = {
