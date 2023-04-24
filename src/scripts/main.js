@@ -4,7 +4,8 @@ function waitFor(element, eventName) {
   return new Promise((resolve, reject) => {
     element.addEventListener(eventName, () => {
       // eslint-disable-next-line max-len
-      resolve(`It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`);
+      const { nodeName, id } = element;
+      resolve(`It was ${eventName} on the element: ${nodeName}, id: ${id}.`);
     });
   });
 }
