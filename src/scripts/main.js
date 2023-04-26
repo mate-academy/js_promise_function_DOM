@@ -9,10 +9,11 @@ function waitFor(element, eventName) {
   });
 }
 
-const div = document.createElement('div');
 const body = document.querySelector('body');
 
 const printMessage = (message) => {
+  const div = document.createElement('div');
+
   body.append(div);
   div.classList = 'message';
   div.textContent = message;
