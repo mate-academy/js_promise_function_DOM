@@ -15,7 +15,7 @@ function waitFor(element, eventName) {
 
 const printMessage = (message) => {
   body.insertAdjacentHTML('beforeend', `
-  <div class="message">${message}</div>
+    <div class="message">${message}</div>
   `);
 };
 
