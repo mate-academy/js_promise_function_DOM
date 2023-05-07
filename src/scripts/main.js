@@ -3,8 +3,7 @@
 function waitFor(element, eventName) {
 // write your code here
   return new Promise(resolve => {
-    // eslint-disable-next-line no-shadow
-    function handler(event) {
+    function handler() {
       element.removeEventListener(eventName, handler);
 
       resolve(`It was ${eventName} on the element:
