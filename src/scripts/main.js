@@ -14,7 +14,7 @@ const printMessage = (message) => {
   document.querySelector('form').insertAdjacentHTML('afterbegin', `
     <div class="message">
       ${message}
-    </dev>
+    </div>
   `);
 };
 
