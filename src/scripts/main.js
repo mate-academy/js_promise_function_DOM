@@ -12,7 +12,9 @@ function waitFor(element, eventName) {
 
 const printMessage = (message) => {
   document.querySelector('form').insertAdjacentHTML('afterbegin', `
-    <div class="message">${message}</dev>
+    <div class="message">
+      ${message}
+    </dev>
   `);
 };
 
