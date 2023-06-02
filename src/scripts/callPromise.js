@@ -1,6 +1,19 @@
 'use strict';
 
-const { waitFor, printMessage } = require('./main');
+function waitFor(element, evnt) {
+  return new Promise((resolve) => {
+    element.addEventListener(evnt, () => {
+      resolve(`Event '${evnt}' occurred on element '${element.id}'`);
+    });
+  });
+}
+
+function printMessage(message) {
+  const notification = document.createElement('div');
+
+  notification.textContent = message;
+  document.body.appendChild(notification);
+}
 
 const loginField = document.getElementById('login');
 const passwordField = document.getElementById('password');
