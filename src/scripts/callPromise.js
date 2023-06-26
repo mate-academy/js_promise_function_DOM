@@ -16,3 +16,8 @@ waitFor(passwordField, 'input').then(printMessage);
 waitFor(loginField, 'blur').then(printMessage);
 waitFor(passwordField, 'blur').then(printMessage);
 waitFor(button, 'blur').then(printMessage);
+
+// waitFor(loginField, 'click').then((message) => console.log(message));
+// waitFor(loginField, 'blur').then((message) => console.log(message));
+// waitFor(loginField, 'input').then((message) => console.log(message));
+// waitFor(passwordField, 'click').then((message) => console.log(message));
