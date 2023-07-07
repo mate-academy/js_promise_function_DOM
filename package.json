@@ -35,7 +35,7 @@
     "node-sass": "^4.14.1",
     "parcel": "^1.12.4",
     "sass": "^1.26.12",
-    "stylelint": "^13.5.0",
+    "stylelint": "^15.10.1",
     "stylelint-config-recommended-scss": "^3.3.0",
     "stylelint-scss": "^3.17.2"
   },
