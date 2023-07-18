@@ -1,11 +1,22 @@
 'use strict';
 
-function waitFor(element, eventName) {
-// write your code here
-}
+const waitFor = (element, eventName) => {
+  const resolver = (resolve) => {
+    element.addEventListener(eventName, () => {
+      // eslint-disable-next-line max-len
+      resolve(`It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`);
+    });
+  };
+
+  return new Promise(resolver);
+};
 
 const printMessage = (message) => {
-// write your code here
+  const body = document.querySelector('body');
+
+  body.insertAdjacentHTML('beforeend', `
+    <div class="message">${message}</div>
+  `);
 };
 
 module.exports = {
