@@ -9,8 +9,6 @@ function waitFor(element, eventName) {
       resolve(result);
     });
   });
-
-  // return new Promise(promise1);
 }
 
 const printMessage = (message) => {
