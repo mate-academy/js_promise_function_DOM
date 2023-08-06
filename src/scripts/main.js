@@ -1,11 +1,22 @@
 'use strict';
 
+// handle every event only once time?
+const ONLY_ONCE = false;
+
 function waitFor(element, eventName) {
-// write your code here
+  return new Promise(resolve => element.addEventListener(eventName, () =>
+    resolve(`It was ${eventName} on the element: `
+    + `${element.nodeName}, id: ${element.id}.`), {
+    once: ONLY_ONCE,
+  }));
 }
 
 const printMessage = (message) => {
-// write your code here
+  const div = document.createElement('div');
+
+  div.textContent = message;
+  div.classList = 'message';
+  document.body.append(div);
 };
 
 module.exports = {
