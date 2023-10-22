@@ -50,8 +50,15 @@ button {
 .message {
   border-radius: 15px;
   background-color: rgb(207, 202, 231);
-  height: 30px;
+  height: 60px;
   text-align: center;
   padding: 10px;
-  left: 10px;
+  position: absolute;
+  top: 20vmin;
+  right: 10vmax;
+  width: 150px;
+}
+
+.message_2nd {
+  top: 35vmin;
 }
