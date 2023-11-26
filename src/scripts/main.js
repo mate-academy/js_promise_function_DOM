@@ -2,8 +2,10 @@
 
 function waitFor(element, eventName) {
   return new Promise((resolve) => {
-    function eventHandler(event) {
+    function eventHandler() {
       element.removeEventListener(eventName, eventHandler);
+
+      // eslint-disable-next-line max-len
       resolve(`It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`);
     }
     element.addEventListener(eventName, eventHandler);
@@ -12,7 +14,9 @@ function waitFor(element, eventName) {
 
 const printMessage = (message) => {
   const messageDiv = document.createElement('div');
+
   messageDiv.textContent = message;
+  messageDiv.className = 'message';
   document.body.appendChild(messageDiv);
 };
 
