@@ -48,10 +48,17 @@ button {
 }
 
 .message {
+  position: absolute;
   border-radius: 15px;
   background-color: rgb(207, 202, 231);
   height: 30px;
   text-align: center;
   padding: 10px;
-  left: 10px;
+  right: 20px;
+
+  @for $val from 1 through 8 {
+    &--#{$val} {
+      top: 10px * $val + 50px * ($val - 1);
+    }
+  }
 }
