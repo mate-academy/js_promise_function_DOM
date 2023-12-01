@@ -1,21 +1,21 @@
 'use strict';
 
+const ONLY_ONCE = false;
+
 function waitFor(element, eventName) {
-  return new Promise((resolve) => {
-    element.addEventListener(eventName, () => {
-      // eslint-disable-next-line max-len
-      resolve(`It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`);
-    });
-  });
+  return new Promise(resolve => element.addEventListener(eventName, () =>
+    resolve(`It was ${eventName} on the element: `
+  + `${element.nodeName}, id: ${element.id}.`), {
+    once: ONLY_ONCE,
+  }));
 }
 
 const printMessage = (message) => {
-  const notification = document.createElement('div');
+  const div = document.createElement('div');
 
-  notification.className = 'message';
-  notification.textContent = message;
-
-  document.body.appendChild(notification);
+  div.textContent = message;
+  div.classList = 'message';
+  document.body.append(div);
 };
 
 const loginField = document.getElementById('login');
