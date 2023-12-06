@@ -3,11 +3,10 @@
 function waitFor(element, eventName) {
   return new Promise((resolve) => {
     const handler = () => {
-      const message
-        // eslint-disable-next-line max-len
-        = `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`;
-
-      resolve(message);
+      resolve(
+        `It was ${eventName} on the element: ${
+          element.nodeName}, id: ${element.id}.`,
+      );
       element.removeEventListener(eventName, handler);
     };
 
