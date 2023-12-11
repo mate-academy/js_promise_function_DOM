@@ -1,11 +1,22 @@
 'use strict';
 
+const bodyElement = document.body;
+let clicked = 0;
+
 function waitFor(element, eventName) {
-  // write your code here
+  return new Promise(resolve => element.addEventListener(eventName, () =>
+    resolve(
+      `It was ${eventName} on the element: `
+      + `${element.nodeName}, id: ${element.id}.`,
+      clicked++,
+    ),
+  ));
 }
 
 const printMessage = (message) => {
-  // write your code here
+  bodyElement.insertAdjacentHTML('beforeend', `
+    <div class="message" style="top: ${50 * clicked}px">${message}</div>
+  `);
 };
 
 const loginField = document.getElementById('login');
