@@ -1,26 +1,26 @@
 'use strict';
 
-function waitFor(element, eventName) {
-  const divElement = document.getElementById(element);
+const loginField = document.getElementById('login');
+const passwordField = document.getElementById('password');
+const button = document.getElementById('submit');
 
+function waitFor(element, eventName) {
   return new Promise(function(resolve, reject) {
-    divElement.addEventListener(eventName, () => {
+    button.addEventListener(eventName, () => {
       resolve(`It was ${eventName} on the element:
-       ${element.nodeName}, id: ${element.id}.`);
+      ${element.nodeName}, id: ${element.id}.`);
+
+      printMessage('Message in promise is awesome!!!');
     });
   });
-}
+};
 
 const printMessage = (message) => {
   const formElement = document.querySelector('form');
 
-  formElement.className('message');
-  formElement.insertAdjacentHTML('afterbegin', `<div>${message}</div>`);
+  formElement.setAttribute('color', 'red');
+  formElement.insertAdjacentHTML('beforeend', `<div>${message}</div>`);
 };
-
-const loginField = document.getElementById('login');
-const passwordField = document.getElementById('password');
-const button = document.getElementById('submit');
 
 waitFor(loginField, 'click').then(printMessage);
 waitFor(passwordField, 'click').then(printMessage);
