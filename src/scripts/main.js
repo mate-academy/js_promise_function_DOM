@@ -9,8 +9,6 @@ function waitFor(element, eventName) {
     button.addEventListener(eventName, () => {
       resolve(`It was ${eventName} on the element:
       ${element.nodeName}, id: ${element.id}.`);
-
-      printMessage('Message in promise is awesome!!!');
     });
   });
 };
@@ -18,17 +16,32 @@ function waitFor(element, eventName) {
 const printMessage = (message) => {
   const formElement = document.querySelector('form');
 
-  formElement.setAttribute('color', 'red');
   formElement.insertAdjacentHTML('beforeend', `<div>${message}</div>`);
 };
 
 waitFor(loginField, 'click').then(printMessage);
+
 waitFor(passwordField, 'click').then(printMessage);
+
 waitFor(button, 'click').then(printMessage);
 
-waitFor(loginField, 'input').then(printMessage);
-waitFor(passwordField, 'input').then(printMessage);
+waitFor(loginField, 'input')
+  .then(printMessage);
 
-waitFor(loginField, 'blur').then(printMessage);
-waitFor(passwordField, 'blur').then(printMessage);
-waitFor(button, 'blur').then(printMessage);
+waitFor(passwordField, 'input')
+  .then(printMessage);
+
+waitFor(loginField, 'blur').then(printMessage, loginField
+  .addEventListener('click', () => {
+    printMessage('You clicked in loginField!!!');
+  }));
+
+waitFor(passwordField, 'blur').then(printMessage, passwordField
+  .addEventListener('click', () => {
+    printMessage('You clicked in passwordField!!!');
+  }));
+
+waitFor(button, 'blur').then(printMessage, button
+  .addEventListener('click', () => {
+    printMessage('You clicked in button!!!');
+  }));
