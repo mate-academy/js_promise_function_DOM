@@ -11,7 +11,7 @@ function waitFor(element, eventName) {
 
 const printMessage = (message) => {
   document.body.insertAdjacentHTML('beforeend',
-    `<div class="message">${message}</div>`);
+    `<div style='display: inline;' class="message">${message}</div>`);
 };
 
 const loginField = document.getElementById('login');
