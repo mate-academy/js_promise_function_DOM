@@ -7,8 +7,7 @@ function waitFor(element, eventName) {
         `
         It was ${eventName} 
         on the element: ${element.nodeName}, 
-        id: ${element.id}.
-        `,
+        id: ${element.id}.`,
       );
     });
   });
@@ -18,7 +17,7 @@ const printMessage = (message) => {
   const notification = document.createElement('div');
 
   notification.className = 'message';
-  notification.innerText = message;
+  notification.textContent = message;
 
   document.body.append(notification);
 };
