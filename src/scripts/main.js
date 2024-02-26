@@ -20,7 +20,7 @@ const printMessage = (message) => {
   // write your code here
   const element = document.createElement('DIV');
 
-  element.className = '.message';
+  element.className = 'message';
   element.innerHTML = message;
   document.body.append(element);
 };
