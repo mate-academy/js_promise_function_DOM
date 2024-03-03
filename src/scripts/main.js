@@ -1,11 +1,18 @@
+/* eslint-disable no-console */
 'use strict';
 
 function waitFor(element, eventName) {
-  // write your code here
+  const text = `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`;
+
+  return new Promise((resolve) => {
+    element.addEventListener(eventName, () => resolve(text));
+  });
 }
 
 const printMessage = (message) => {
-  // write your code here
+  const messageBlock = `<div class="message">${message}</div>`;
+
+  document.body.insertAdjacentHTML('afterbegin', messageBlock);
 };
 
 const loginField = document.getElementById('login');
