@@ -1,5 +1,7 @@
 'use strict';
 
+const messageContainer = document.querySelector('.message');
+
 function waitFor(element, eventName) {
   return new Promise((resolve) => {
     element.addEventListener(
@@ -15,10 +17,8 @@ function waitFor(element, eventName) {
 }
 
 const printMessage = (message) => {
-  document.body.insertAdjacentHTML(
-    'beforeend',
-    `<div class="message">${message}</div>`,
-  );
+  messageContainer.hidden = false;
+  messageContainer.innerHTML = message;
 };
 
 const loginField = document.getElementById('login');
