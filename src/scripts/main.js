@@ -12,6 +12,7 @@ function waitFor(element, eventName) {
   });
 }
 
+
 const printMessage = (message) => {
   const msg = document.createElement('div');
 
