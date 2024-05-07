@@ -10,7 +10,7 @@ function waitFor(element, eventName) {
   });
 }
 
-function printMessage(message) {
+function printMessage1(message) {
   const div = document.createElement('div');
 
   div.className = 'message';
@@ -23,13 +23,13 @@ const loginField = document.getElementById('login');
 const passwordField = document.getElementById('password');
 const button = document.getElementById('submit');
 
-waitFor(loginField, 'click').then(printMessage);
-waitFor(passwordField, 'click').then(printMessage);
-waitFor(button, 'click').then(printMessage);
+waitFor(loginField, 'click').then(printMessage1);
+waitFor(passwordField, 'click').then(printMessage1);
+waitFor(button, 'click').then(printMessage1);
 
-waitFor(loginField, 'input').then(printMessage);
-waitFor(passwordField, 'input').then(printMessage);
+waitFor(loginField, 'input').then(printMessage1);
+waitFor(passwordField, 'input').then(printMessage1);
 
-waitFor(loginField, 'blur').then(printMessage);
-waitFor(passwordField, 'blur').then(printMessage);
-waitFor(button, 'blur').then(printMessage);
+waitFor(loginField, 'blur').then(printMessage1);
+waitFor(passwordField, 'blur').then(printMessage1);
+waitFor(button, 'blur').then(printMessage1);
