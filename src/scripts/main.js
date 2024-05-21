@@ -16,10 +16,6 @@ const printMessage = (message) => {
   messageElement.classList.add('message');
   messageElement.textContent = message;
   document.body.appendChild(messageElement);
-
-  setTimeout(() => {
-    messageElement.remove();
-  }, 2000);
 };
 
 const loginField = document.getElementById('login');
