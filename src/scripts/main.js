@@ -1,16 +1,30 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  // write your code here
+  return new Promise((resolve, reject) => {
+    element.addEventListener(eventName, (e) => {
+      e.preventDefault();
+
+      resolve(
+        `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
+      );
+    });
+  });
 }
 
 const printMessage = (message) => {
-  // write your code here
+  const newEl = document.createElement('div');
+
+  newEl.classList.add('message');
+  newEl.textContent = message;
+
+  body.appendChild(newEl);
 };
 
 const loginField = document.getElementById('login');
 const passwordField = document.getElementById('password');
 const button = document.getElementById('submit');
+const body = document.querySelector('body');
 
 waitFor(loginField, 'click').then(printMessage);
 waitFor(passwordField, 'click').then(printMessage);
