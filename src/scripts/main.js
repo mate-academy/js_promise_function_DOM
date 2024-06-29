@@ -2,15 +2,19 @@
 
 function waitFor(element, eventName) {
   return new Promise((resolve, reject) => {
-    element.addEventListener(
-      eventName,
-      (e) => {
-        resolve(
-          `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
-        );
-      },
-      { once: true },
-    );
+    if (element) {
+      element.addEventListener(
+        eventName,
+        (e) => {
+          resolve(
+            `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
+          );
+        },
+        { once: true },
+      );
+    } else {
+      reject(new Error('Element not found'));
+    }
   });
 }
 
@@ -18,7 +22,7 @@ const printMessage = (message) => {
   const div = document.createElement('div');
 
   div.classList.add('message');
-  div.innerText = message;
+  div.textContent = message;
   document.body.appendChild(div);
 };
 
