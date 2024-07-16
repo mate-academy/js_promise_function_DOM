@@ -1,11 +1,39 @@
 'use strict';
 
+const body = document.querySelector('body');
+
+body.style.flexDirection = 'column';
+
 function waitFor(element, eventName) {
-  // write your code here
+  return new Promise((resolve, reject) => {
+    element.addEventListener(eventName, (e) => {
+      if (e.target === element) {
+        resolve(`
+          It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.
+        `);
+      }
+    });
+  });
 }
 
 const printMessage = (message) => {
-  // write your code here
+  const div = document.createElement('div');
+
+  div.className = 'message';
+  div.textContent = message;
+  div.style.margin = '10px';
+  div.style.opacity = '1';
+  div.style.transition = 'opacity 0.5s ease';
+
+  body.prepend(div);
+
+  setTimeout(() => {
+    div.style.opacity = '0';
+
+    setTimeout(() => {
+      div.remove();
+    }, 500);
+  }, 3000);
 };
 
 const loginField = document.getElementById('login');
