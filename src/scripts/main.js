@@ -1,11 +1,26 @@
+/* eslint-disable function-paren-newline */
 'use strict';
 
+const body = document.body;
+
 function waitFor(element, eventName) {
-  // write your code here
+  return new Promise((resolve) => {
+    element.addEventListener(eventName, () =>
+      resolve(
+        `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
+      ),
+    );
+  });
 }
 
 const printMessage = (message) => {
-  // write your code here
+  const div = document.createElement('div');
+
+  div.classList.add('message');
+
+  div.innerText = message;
+
+  body.appendChild(div);
 };
 
 const loginField = document.getElementById('login');
