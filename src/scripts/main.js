@@ -1,11 +1,24 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  // write your code here
+  return new Promise((resolve) => {
+    const eventHandler = () => {
+      const message = `Це була подія ${eventName} на елементі: ${element.nodeName}, ідентифікатор: ${element.id}`;
+
+      element.removeEventListener(eventName, eventHandler);
+      resolve(message);
+    };
+
+    element.addEventListener(eventName, eventHandler);
+  });
 }
 
 const printMessage = (message) => {
-  // write your code here
+  const mes = document.createElement('div');
+
+  mes.className = 'message';
+  mes.textContent = message;
+  document.body.appendChild(mes);
 };
 
 const loginField = document.getElementById('login');
