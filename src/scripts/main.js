@@ -1,12 +1,33 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  // write your code here
+  return new Promise((resolve, reject) => {
+    element.addEventListener(eventName, function (e) {
+      if (
+        e.target.id === element.id &&
+        (eventName === 'click' || eventName === 'input' || eventName === 'blur')
+      ) {
+        resolve(
+          `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
+        );
+      }
+    });
+  });
 }
 
-const printMessage = (message) => {
-  // write your code here
-};
+function printMessage(message) {
+  const messageElement = document.createElement('div');
+  const body = document.body;
+
+  body.style.display = 'flex';
+  body.style.flexDirection = 'column';
+  messageElement.style.marginTop = '20px';
+
+  messageElement.className = 'message';
+  messageElement.textContent = message;
+
+  body.firstElementChild.after(messageElement);
+}
 
 const loginField = document.getElementById('login');
 const passwordField = document.getElementById('password');
