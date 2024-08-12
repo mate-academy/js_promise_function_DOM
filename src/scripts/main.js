@@ -3,20 +3,20 @@
 function waitFor(element, eventName) {
   return new Promise((resolve) => {
     element.addEventListener(eventName, () => {
-      const message = `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}`;
-
-      resolve(message);
+      resolve(
+        `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
+      );
     });
   });
 }
 
-function printMessage(message) {
-  const messageDiv = document.createElement('div');
+const printMessage = (message) => {
+  const div = document.createElement('div');
 
-  messageDiv.classList.add('message');
-  messageDiv.textContent = message;
-  document.body.appendChild(messageDiv);
-}
+  div.className = 'message';
+  div.textContent = message;
+  document.body.appendChild(div);
+};
 
 const loginField = document.getElementById('login');
 const passwordField = document.getElementById('password');
