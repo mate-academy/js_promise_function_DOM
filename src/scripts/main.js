@@ -2,9 +2,13 @@
 
 function waitFor(element, eventName) {
   // write your code here
-  return Promise.resolve(
-    `It was ${eventName.toUpperCase()} on the element: ${element.nodeName}, id: ${element.id}.`,
-  );
+  return new Promise((resolve) => {
+    element.addEventListener(eventName, () => {
+      resolve(
+        `It was ${eventName} on the element: ${element.nodeName.toUpperCase()}, id: ${element.id}.`,
+      );
+    });
+  });
 }
 
 const printMessage = (message) => {
