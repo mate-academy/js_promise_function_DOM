@@ -3,11 +3,15 @@
 function waitFor(element, eventName) {
   return new Promise(function (resolve, reject) {
     if (!element || !eventName) {
-      reject(new Error());
+      reject(new Error('Element or event name not provided'));
     } else {
-      resolve(
-        `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
-      );
+      element.addEventListener(eventName, function handler(e) {
+        element.removeEventListener(eventName, handler);
+
+        resolve(
+          `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
+        );
+      });
     }
   });
 }
