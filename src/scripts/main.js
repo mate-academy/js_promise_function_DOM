@@ -1,12 +1,8 @@
 'use strict';
 
-function waitFor(element, eventName) {
-  // write your code here
-}
+function waitFor(element, eventName) {}
 
-const printMessage = (message) => {
-  // write your code here
-};
+const printMessage = (message) => {};
 
 const loginField = document.getElementById('login');
 const passwordField = document.getElementById('password');
