@@ -8,7 +8,6 @@ Also create a function `printMessage` that takes a string `message` and adds `<d
 
 For your convenience we added several inputs and buttons on the page and used `waitFor` and `printMessage` in the `callPromise.js`
 so you can click and type to check if your code works as expected (you should see messages for `click`, `input` and `blur` events).
-
 ## Instructions
 1. Replace `<your_account>` with your Github username in the link
     - [DEMO LINK](https://mrsvolodya.github.io/js_promise_function_DOM/)
