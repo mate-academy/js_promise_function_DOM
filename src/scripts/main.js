@@ -2,21 +2,29 @@
 
 function waitFor(element, eventName) {
   return new Promise((resolve) => {
-    element.addEventListener(eventName, (e) => {
+    const handler = (e) => {
+      element.removeEventListener(eventName, handler);
+
+      const safeId = element.id.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
       resolve(
-        `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
+        `It was ${eventName} on the element: ${element.nodeName}, id: ${safeId}.`,
       );
-    });
+    };
+
+    element.addEventListener(eventName, handler);
   });
 }
 
 const printMessage = (message) => {
+  const fragment = document.createDocumentFragment();
   const div = document.createElement('div');
 
   div.classList.add('message');
-
   div.textContent = message;
-  document.body.append(div);
+
+  fragment.appendChild(div);
+  document.body.appendChild(fragment);
 };
 
 const loginField = document.getElementById('login');
