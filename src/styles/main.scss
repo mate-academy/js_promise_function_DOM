@@ -14,7 +14,6 @@ form {
   width: 300px;
   display: flex;
   flex-direction: column;
-  position: relative;
 }
 
 label {
@@ -49,8 +48,6 @@ button {
 }
 
 .message {
-  position: absolute;
-  bottom: -30%;
   border-radius: 15px;
   background-color: rgb(207, 202, 231);
   height: 30px;
