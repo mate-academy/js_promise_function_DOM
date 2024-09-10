@@ -1,5 +1,9 @@
 'use strict';
 
+document.addEventListener('contextmenu', (eve) => {
+  eve.preventDefault();
+});
+
 function waitFor(element, eventName) {
   const promise1 = new Promise((resolve, reject) => {
     element.addEventListener(eventName, (eve) => {
