@@ -1,27 +1,21 @@
 'use strict';
 
-document.addEventListener('contextmenu', (eve) => {
-  eve.preventDefault();
-});
-
 function waitFor(element, eventName) {
-  const promise1 = new Promise((resolve, reject) => {
-    element.addEventListener(eventName, (eve) => {
-      const message = `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}`;
-
-      resolve(message);
+  return new Promise((resolve) => {
+    element.addEventListener(eventName, () => {
+      resolve(
+        `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}`,
+      );
     });
   });
-
-  return promise1;
 }
 
 const printMessage = (message) => {
-  const div = document.createElement('div');
+  const messageElement = document.createElement('div');
 
-  div.classList.add('message');
-  div.textContent = message;
-  document.body.append(div);
+  messageElement.className = 'message';
+  messageElement.textContent = message;
+  document.body.append(messageElement);
 };
 
 const loginField = document.getElementById('login');
