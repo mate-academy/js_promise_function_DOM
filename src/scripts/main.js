@@ -2,7 +2,7 @@
 
 function waitFor(element, eventName) {
   const promise = new Promise((resolve, reject) => {
-    element.addEventListener('click', () => {
+    element.addEventListener(eventName, () => {
       resolve(
         `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
       );
