@@ -6,41 +6,40 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Promise function</title>
-    <link
-      rel="stylesheet"
-      href="./styles/main.scss"
-    />
+    <title>Document</title>
   </head>
   <body>
-    <form>
-      <label for="login">
-        Login
-        <input
-          name="login"
-          type="text"
-          placeholder="Login"
-          id="login"
-        />
-      </label>
-      <label for="password">
-        Password
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          id="password"
-        />
-      </label>
+    <script>
+      function waitFor(element, eventName) {
+        return new Promise((resolve) => {
+          element.addEventListener(eventName, function handler(event) {
+            element.removeEventListener(eventName, handler);
+            resolve(
+              `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
+            );
+          });
+        });
+      }
 
-      <button
-        type="button"
-        id="submit"
-      >
-        Login
-      </button>
-    </form>
+      function printMessage(message) {
+        const div = document.createElement('div');
+        div.className = 'message';
+        div.textContent = message;
+        document.body.appendChild(div);
+      }
 
-    <script src="scripts/main.js"></script>
+      // Example usage:
+      document.addEventListener('DOMContentLoaded', () => {
+        const loginInput = document.getElementById('login');
+        const passwordInput = document.getElementById('password');
+        const submitButton = document.getElementById('submit');
+
+        waitFor(loginInput, 'click').then(printMessage);
+        waitFor(loginInput, 'blur').then(printMessage);
+        waitFor(passwordInput, 'click').then(printMessage);
+        waitFor(passwordInput, 'blur').then(printMessage);
+        waitFor(submitButton, 'click').then(printMessage);
+      });
+    </script>
   </body>
 </html>
