@@ -1,11 +1,31 @@
 'use strict';
 
+const body = document.querySelector('body');
+
 function waitFor(element, eventName) {
-  // write your code here
+  const promise = new Promise((resolve, reject) => {
+    if (!element) {
+      const error = `Missing ${element}`;
+
+      reject(error);
+    }
+
+    element.addEventListener(eventName, () => {
+      resolve(
+        `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
+      );
+    });
+  });
+
+  return promise;
 }
 
 const printMessage = (message) => {
-  // write your code here
+  const div = document.createElement('div');
+
+  div.classList.add('message');
+  div.innerHTML = message;
+  body.appendChild(div);
 };
 
 const loginField = document.getElementById('login');
