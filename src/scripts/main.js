@@ -1,11 +1,28 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  // write your code here
+  // eslint-disable-next-line no-shadow
+
+  return new Promise((resolve) => {
+    // eslint-disable-next-line no-shadow
+    element.addEventListener(eventName, function (event) {
+      event.preventDefault();
+
+      if (event) {
+        resolve(
+          `${eventName} on the element: ${element.nodeName}, id: ${element.id}`,
+        );
+      }
+    });
+  });
 }
 
 const printMessage = (message) => {
-  // write your code here
+  const createElementDiv = document.createElement('div');
+
+  createElementDiv.classList.add('message');
+  createElementDiv.textContent = message;
+  document.body.append(createElementDiv);
 };
 
 const loginField = document.getElementById('login');
