@@ -8,9 +8,14 @@ body {
   justify-content: center;
 
   min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 form {
+  margin-top: 50px;
   width: 300px;
   display: flex;
   flex-direction: column;
