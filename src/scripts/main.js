@@ -1,11 +1,42 @@
+/* eslint-disable max-len */
+/* eslint-disable no-template-curly-in-string */
 'use strict';
 
+const body = document.querySelector('body');
+
 function waitFor(element, eventName) {
-  // write your code here
+  const resolveMessage = `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`;
+
+  return new Promise((resolve) => {
+    switch (eventName) {
+      case 'click':
+        return element.addEventListener('click', () => {
+          resolve(resolveMessage);
+        });
+
+      case 'contextmenu':
+        return element.addEventListener('contextmenu', () => {
+          resolve(resolveMessage);
+        });
+
+      case 'blur':
+        return element.addEventListener('blur', () => {
+          resolve(resolveMessage);
+        });
+
+      default:
+        return 0;
+    }
+  });
 }
 
 const printMessage = (message) => {
-  // write your code here
+  const div = document.createElement('div');
+
+  div.classList.add('message');
+  div.innerText = message;
+
+  body.appendChild(div);
 };
 
 const loginField = document.getElementById('login');
@@ -16,8 +47,8 @@ waitFor(loginField, 'click').then(printMessage);
 waitFor(passwordField, 'click').then(printMessage);
 waitFor(button, 'click').then(printMessage);
 
-waitFor(loginField, 'input').then(printMessage);
-waitFor(passwordField, 'input').then(printMessage);
+waitFor(loginField, 'contextmenu').then(printMessage);
+waitFor(passwordField, 'contextmenu').then(printMessage);
 
 waitFor(loginField, 'blur').then(printMessage);
 waitFor(passwordField, 'blur').then(printMessage);
