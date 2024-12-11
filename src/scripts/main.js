@@ -1,9 +1,16 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
+    if (!element) {
+      return reject(new Error(`Element not found.`));
+    }
+
+    const elementName = element.nodeName || 'Unknown';
+    const elementId = element.id || 'no-id';
+
     element.addEventListener(eventName, () => {
-      const message = `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`;
+      const message = `It was ${eventName} on the element: ${elementName}, id: ${elementId}.`;
 
       resolve(message);
     });
