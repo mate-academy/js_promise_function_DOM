@@ -2,10 +2,26 @@
 
 function waitFor(element, eventName) {
   // write your code here
+  const eventsMass = [`click`, `contextmenu`, `blur`];
+
+  return new Promise((resolve, reject) => {
+    if (eventsMass.some((word) => word === eventName)) {
+      element.addEventListener(eventName, (e) => {
+        resolve(
+          `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
+        );
+      });
+    }
+  });
 }
 
 const printMessage = (message) => {
   // write your code here
+  const div = document.createElement('div');
+
+  div.classList.add('message');
+  div.innerText = message;
+  document.body.appendChild(div);
 };
 
 const loginField = document.getElementById('login');
