@@ -1,12 +1,38 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  // write your code here
+  return new Promise((resolve, reject) => {
+    if (!element) {
+      reject(new Error('There is no element!'));
+
+      return;
+    }
+
+    if (typeof eventName !== 'string') {
+      reject(new Error('The type of event is incrorrect.'));
+
+      return;
+    }
+
+    function handler(_event) {
+      element.removeEventListener(eventName, handler);
+
+      resolve(
+        `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}`,
+      );
+    }
+
+    element.addEventListener(eventName, handler);
+  });
 }
 
-const printMessage = (message) => {
-  // write your code here
-};
+function printMessage(message) {
+  const messageDiv = document.createElement('div');
+
+  messageDiv.className = 'message';
+  messageDiv.textContent = message;
+  document.body.appendChild(messageDiv);
+}
 
 const loginField = document.getElementById('login');
 const passwordField = document.getElementById('password');
