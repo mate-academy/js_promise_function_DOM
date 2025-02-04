@@ -2,10 +2,25 @@
 
 function waitFor(element, eventName) {
   // write your code here
+  return new Promise((resolve) => {
+    element.addEventListener(eventName, function handler() {
+      // Вирішуємо проміс з повідомленням
+      resolve(
+        `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
+      );
+      element.removeEventListener(eventName, handler);
+    });
+  });
 }
 
 const printMessage = (message) => {
   // write your code here
+  const div = document.createElement('div');
+
+  div.classList.add('message');
+  div.textContent = message;
+  // Додаємо <div> до body
+  document.body.appendChild(div);
 };
 
 const loginField = document.getElementById('login');
