@@ -1,18 +1,26 @@
-# Promise function
-Create a function `waitFor` that takes a DOM `element` and a string `eventName`, such as `click`, `contextmenu` or `blur`.
-The function returns a `Promise` that should be **resolved** when `eventName` happened on the `element` with a message
-`It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`
-(For example: `It was click on the element: INPUT, id: login.`)
+# Promise Function
 
-Also create a function `printMessage` that takes a string `message` and adds `<div class="message">` with the `message` to the DOM
+## 🎮 About the Project
+In this project, I created a function that returns a `Promise`. The promise is **resolved** when a specific event (such as a click) occurs on the given element.
 
-For your convenience we added several inputs and buttons on the page and used `waitFor` and `printMessage` in the `callPromise.js` 
-so you can click and type to check if your code works as expected (you should see messages for `click`, `input` and `blur` events).
+## 🚀 Tech Stack
+- **HTML** (BEM methodology for structured markup)
+- **CSS** (For styling)
+- **JavaScript** (Managing promise logic)
 
-## Instructions
-1. Replace `<your_account>` with your Github username in the link
-    - [DEMO LINK](https://<your_account>.github.io/js_promise_function_DOM/)
-2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
-    - Run `npm run test` command to test your code;
-    - Run `npm run test:only -- -n` to run fast test ignoring linter;
-    - Run `npm run test:only -- -l` to run fast test with additional info in console ignoring linter.
+## 🛠️ Tools & Dependencies
+- **ESLint** – Ensuring code quality  
+- **Prettier** – Code formatting for readability  
+- **Cypress** – End-to-end testing  
+- **Mochawesome** – Test reporting  
+- **Parcel** – Web application bundler  
+
+## 📌 Features
+✅ Function that returns a promise  
+✅ Promise is resolved when an event happens on a specified element  
+
+## 🌐 Demo
+🔗 [Live Demo](https://AndriiZakharenko.github.io/promise-function/)
+
+## 📜 License
+This project is forked from 💻 [Mate Academy](https://github.com/mate-academy/js_promise_function_DOM)
