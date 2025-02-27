@@ -9,10 +9,4 @@ Also create a function `printMessage` that takes a string `message` and adds `<d
 For your convenience we added several inputs and buttons on the page and used `waitFor` and `printMessage` in the `callPromise.js` 
 so you can click and type to check if your code works as expected (you should see messages for `click`, `input` and `blur` events).
 
-## Instructions
-1. Replace `<your_account>` with your Github username in the link
-    - [DEMO LINK](https://<your_account>.github.io/js_promise_function_DOM/)
-2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
-    - Run `npm run test` command to test your code;
-    - Run `npm run test:only -- -n` to run fast test ignoring linter;
-    - Run `npm run test:only -- -l` to run fast test with additional info in console ignoring linter.
+[DEMO LINK](https://vkrasnovyd.github.io/js_promise_function_DOM/)
