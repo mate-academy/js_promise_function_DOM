@@ -16,15 +16,16 @@ function waitFor(element, eventName) {
 
 const printMessage = (message) => {
   const body = document.querySelector('body');
-  const messageDiv = document.createElement('div');
-
-  messageDiv.className = 'message';
-  messageDiv.innerText = message;
 
   if (body.querySelector('.message') !== null) {
-    body.replaceChild(messageDiv, body.querySelector('.message'));
+    body.querySelector('.message').innerText = message;
   } else {
-    document.querySelector('body').append(messageDiv);
+    const messageDiv = document.createElement('div');
+
+    messageDiv.className = 'message';
+    messageDiv.innerText = message;
+
+    body.append(messageDiv);
   }
 };
 
