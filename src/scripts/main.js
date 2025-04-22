@@ -1,6 +1,5 @@
 'use strict';
-
-export function waitFor(element, eventName) {
+ function waitFor(element, eventName) {
   return new Promise((resolve) => {
     const handler = () => {
       element.removeEventListener(eventName, handler);
@@ -15,7 +14,7 @@ export function waitFor(element, eventName) {
   });
 }
 
-export function printMessage(message) {
+function printMessage(message) {
   const div = document.createElement('div');
 
   div.classList.add('message');
