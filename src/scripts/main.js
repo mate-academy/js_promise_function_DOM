@@ -11,14 +11,13 @@ function waitFor(element, eventName) {
 }
 
 const printMessage = (message) => {
-  const body = document.querySelector('body');
   const div = document.createElement('div');
 
   div.classList.add('message');
 
   div.textContent = message;
 
-  body.appendChild(div);
+  document.body.appendChild(div);
 };
 
 const loginField = document.getElementById('login');
