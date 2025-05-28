@@ -3,13 +3,17 @@
 function waitFor(element, eventName) {
   // write your code here
   return new Promise((resolve) => {
-    document.addEventListener('click', (e) => {
+    const handler = (e) => {
       if (e.target === element) {
+        element.removeEventListener(eventName, handler);
+
         resolve(
           `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
         );
       }
-    });
+    };
+
+    element.addEventListener(eventName, handler);
   });
 }
 
