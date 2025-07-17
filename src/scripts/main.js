@@ -2,10 +2,25 @@
 
 function waitFor(element, eventName) {
   // write your code here
+  return new Promise((resolve) => {
+    function handler() {
+      resolve(
+        `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
+      );
+    }
+
+    element.addEventListener(eventName, handler);
+  });
 }
 
 const printMessage = (message) => {
   // write your code here
+  const notificationString = document.createElement('div');
+
+  notificationString.classList.add('message');
+  notificationString.textContent = message;
+
+  document.body.append(notificationString);
 };
 
 const loginField = document.getElementById('login');
