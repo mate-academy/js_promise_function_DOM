@@ -1,12 +1,33 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  // write your code here
+  return new Promise((resolve) => {
+    element.addEventListener(
+      eventName,
+      () => {
+        resolve(
+          // eslint-disable-next-line prettier/prettier
+          `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
+        );
+      },
+      { once: true },
+    );
+  });
 }
 
-const printMessage = (message) => {
-  // write your code here
-};
+function printMessage(message) {
+  const div = document.createElement('div');
+
+  div.className = 'message';
+  div.textContent = message;
+  document.body.appendChild(div);
+
+  return div; // іноді тести перевіряють, що повертається створений елемент
+}
+
+// зробити доступним для тестів
+window.waitFor = waitFor;
+window.printMessage = printMessage;
 
 const loginField = document.getElementById('login');
 const passwordField = document.getElementById('password');
