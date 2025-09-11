@@ -3,8 +3,9 @@
 function waitFor(element, eventName) {
   if (
     !element ||
-    !(element instanceof Element) ||
-    typeof eventName !== 'string'
+    typeof element.addEventListener !== 'function' ||
+    typeof eventName !== 'string' ||
+    eventName.trim() === ''
   ) {
     throw new Error('Invalid arguments');
   }
@@ -12,9 +13,11 @@ function waitFor(element, eventName) {
   return new Promise((resolve) => {
     element.addEventListener(
       eventName,
-      () => {
+      (e) => {
+        const target = e.currentTarget;
+
         resolve(
-          `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
+          `It was ${eventName} on the element: ${target.nodeName}, id: ${target.id}.`,
         );
       },
       { once: true },
