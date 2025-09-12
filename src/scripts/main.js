@@ -1,11 +1,31 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  // write your code here
+  if (!element) {
+    return Promise.reject(
+      new Error(`Element not found for event: ${eventName}`),
+    );
+  }
+
+  return new Promise((resolve) => {
+    function handler(ev) {
+      element.removeEventListener(eventName, handler);
+
+      const message = `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`;
+
+      resolve(message);
+    }
+
+    element.addEventListener(eventName, handler);
+  });
 }
 
 const printMessage = (message) => {
-  // write your code here
+  const d1v = document.createElement('div');
+
+  d1v.classList.add('message');
+  d1v.textContent = message;
+  document.body.appendChild(d1v);
 };
 
 const loginField = document.getElementById('login');
@@ -22,3 +42,4 @@ waitFor(passwordField, 'input').then(printMessage);
 waitFor(loginField, 'blur').then(printMessage);
 waitFor(passwordField, 'blur').then(printMessage);
 waitFor(button, 'blur').then(printMessage);
+export { waitFor, printMessage };
