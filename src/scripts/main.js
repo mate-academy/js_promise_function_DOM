@@ -2,16 +2,20 @@
 
 function waitFor(element, eventName) {
   if (!element) {
-    throw new Error(`Element not found for event: ${eventName}`);
+    return Promise.reject(
+      new Error(`Element not found for event: ${eventName}`),
+    );
   }
 
   return new Promise((resolve) => {
     function handler(ev) {
-      resolve(
-        `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
-      );
       element.removeEventListener(eventName, handler);
+
+      const message = `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`;
+
+      resolve(message);
     }
+
     element.addEventListener(eventName, handler);
   });
 }
@@ -38,3 +42,4 @@ waitFor(passwordField, 'input').then(printMessage);
 waitFor(loginField, 'blur').then(printMessage);
 waitFor(passwordField, 'blur').then(printMessage);
 waitFor(button, 'blur').then(printMessage);
+export { waitFor, printMessage };
