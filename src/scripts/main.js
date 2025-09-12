@@ -1,6 +1,10 @@
 'use strict';
 
 function waitFor(element, eventName) {
+  if (!element) {
+    throw new Error(`Element not found for event: ${eventName}`);
+  }
+
   return new Promise((resolve) => {
     function handler(ev) {
       resolve(
