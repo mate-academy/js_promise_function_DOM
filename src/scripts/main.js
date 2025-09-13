@@ -2,6 +2,12 @@
 
 function waitFor(element, eventName) {
   return new Promise((resolve, reject) => {
+    if (!element) {
+      reject(new Error('element must be an EventTarget'));
+
+      return;
+    }
+
     const eventLisen = (e) => {
       const text = `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`;
 
