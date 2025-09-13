@@ -2,10 +2,8 @@
 
 function waitFor(element, eventName) {
   return new Promise((resolve, reject) => {
-    if (!element) {
-      reject(new Error('element must be an EventTarget'));
-
-      return;
+    if (!element || typeof element.addEventListener !== 'function') {
+      return Promise.reject(new Error('element must be an EventTarget'));
     }
 
     const eventLisen = (e) => {
@@ -42,3 +40,5 @@ waitFor(passwordField, 'input').then(printMessage);
 waitFor(loginField, 'blur').then(printMessage);
 waitFor(passwordField, 'blur').then(printMessage);
 waitFor(button, 'blur').then(printMessage);
+
+export { waitFor, printMessage };
