@@ -1,24 +1,35 @@
 'use strict';
 
-function waitFor(element, eventName) {
-  // write your code here
+/**
+ * Waits for a specific DOM event to occur on an element
+ *
+ * @param {HTMLElement} element - DOM element to listen on
+ * @param {string} eventName - name of the event to wait for
+ * @returns {Promise<string>} - Promise that resolves with a message
+ *  when the event occurs.
+ */
+export function waitFor(element, eventName) {
+  return new Promise((resolve) => {
+    const eventHandler = () => {
+      resolve(
+        `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
+      );
+    };
+
+    element.addEventListener(eventName, eventHandler, { once: true });
+  });
 }
 
-const printMessage = (message) => {
-  // write your code here
-};
+/**
+ * Adds a message to the DOM.
+ * @param {string} message The message text to display.
+ */
+export function printMessage(message) {
+  const container = document.getElementById('notification') ?? document.body;
+  const messageDiv = document.createElement('div');
 
-const loginField = document.getElementById('login');
-const passwordField = document.getElementById('password');
-const button = document.getElementById('submit');
-
-waitFor(loginField, 'click').then(printMessage);
-waitFor(passwordField, 'click').then(printMessage);
-waitFor(button, 'click').then(printMessage);
-
-waitFor(loginField, 'input').then(printMessage);
-waitFor(passwordField, 'input').then(printMessage);
-
-waitFor(loginField, 'blur').then(printMessage);
-waitFor(passwordField, 'blur').then(printMessage);
-waitFor(button, 'blur').then(printMessage);
+  messageDiv.setAttribute('data-qa', 'notification');
+  messageDiv.className = 'message';
+  messageDiv.textContent = message;
+  container.appendChild(messageDiv);
+}
