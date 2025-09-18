@@ -3,11 +3,11 @@
 function waitFor(element, eventName) {
   const promise = new Promise((resolve) => {
     const evt = () => {
+      element.removeEventListener(eventName, evt);
+
       resolve(
         `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
       );
-
-      element.removeEventListener(eventName, evt);
     };
 
     element.addEventListener(eventName, evt);
@@ -17,14 +17,10 @@ function waitFor(element, eventName) {
 }
 
 const printMessage = (message) => {
-  let messageElement = document.querySelector('.message');
+  const messageElement = document.createElement('div');
 
-  if (!messageElement) {
-    messageElement = document.createElement('div');
-    messageElement.className = 'message';
-    document.body.appendChild(messageElement);
-  }
-
+  messageElement.className = 'message';
+  document.body.appendChild(messageElement);
   messageElement.textContent = message;
 };
 
