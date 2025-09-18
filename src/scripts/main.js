@@ -10,6 +10,10 @@ function waitFor(element, eventName) {
       );
     };
 
+    if (!element || typeof element.addEventListener !== 'function') {
+      return Promise.reject(new Error('Invalid element provided to waitFor'));
+    }
+
     element.addEventListener(eventName, evt);
   });
 
