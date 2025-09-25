@@ -1,11 +1,31 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  // write your code here
+  if (!element || typeof element.addEventListener !== 'function') {
+    throw new TypeError(
+      'Invalid element provided to waitFor: expected an EventTarget with ' +
+        'addEventListener',
+    );
+  }
+
+  return new Promise((resolve) => {
+    function handler() {
+      element.removeEventListener(eventName, handler);
+
+      const msg = `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`;
+
+      resolve(msg);
+    }
+    element.addEventListener(eventName, handler);
+  });
 }
 
 const printMessage = (message) => {
-  // write your code here
+  const msgDiv = document.createElement('div');
+
+  msgDiv.className = 'message';
+  msgDiv.textContent = message;
+  document.body.appendChild(msgDiv);
 };
 
 const loginField = document.getElementById('login');
@@ -22,3 +42,6 @@ waitFor(passwordField, 'input').then(printMessage);
 waitFor(loginField, 'blur').then(printMessage);
 waitFor(passwordField, 'blur').then(printMessage);
 waitFor(button, 'blur').then(printMessage);
+
+window.waitFor = waitFor;
+window.printMessage = printMessage;
