@@ -36,3 +36,6 @@ waitFor(passwordField, 'input').then(printMessage);
 waitFor(loginField, 'blur').then(printMessage);
 waitFor(passwordField, 'blur').then(printMessage);
 waitFor(button, 'blur').then(printMessage);
+
+window.waitFor = waitFor;
+window.printMessage = printMessage;
