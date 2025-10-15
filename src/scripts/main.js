@@ -21,7 +21,7 @@ const printMessage = (message) => {
 
   const newItem = document.createElement('div');
 
-  newItem.className('message');
+  newItem.className = 'message';
 
   newItem.textContent = message;
 
