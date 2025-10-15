@@ -1,7 +1,7 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  const promise = new Promise((resolve, reject) => {
+  const promise = new Promise((resolve) => {
     element.addEventListener(
       `${eventName}`,
       () => {
@@ -21,7 +21,7 @@ const printMessage = (message) => {
 
   const newItem = document.createElement('div');
 
-  newItem.classList.add('message');
+  newItem.className('message');
 
   newItem.textContent = message;
 
