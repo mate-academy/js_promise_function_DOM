@@ -2,7 +2,13 @@
 
 function waitFor(element, eventName) {
   // write your code here
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
+    if (!element) {
+      reject(new Error(`Element not found for event "${eventName}".`));
+
+      return;
+    }
+
     element.addEventListener(
       eventName,
       () => {
