@@ -1,17 +1,32 @@
 'use strict';
 
-function waitFor(element, eventName) {
-  // write your code here
-}
-
+// Funkcja dodająca wiadomość do DOM
 const printMessage = (message) => {
-  // write your code here
+  const div = document.createElement('div');
+  div.className = 'message';
+  div.textContent = message;
+  document.body.appendChild(div);
 };
 
+// Funkcja zwracająca Promise, który resolve po wystąpieniu zdarzenia
+function waitFor(element, eventName) {
+  return new Promise((resolve) => {
+    const handler = () => {
+      resolve(
+        `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`
+      );
+      element.removeEventListener(eventName, handler);
+    };
+    element.addEventListener(eventName, handler);
+  });
+}
+
+// Pobranie elementów
 const loginField = document.getElementById('login');
 const passwordField = document.getElementById('password');
 const button = document.getElementById('submit');
 
+// Wywołania dla wszystkich wymaganych zdarzeń
 waitFor(loginField, 'click').then(printMessage);
 waitFor(passwordField, 'click').then(printMessage);
 waitFor(button, 'click').then(printMessage);
