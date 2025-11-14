@@ -1,11 +1,32 @@
 'use strict';
 
+// const { createElement } = require('react');
+
+const bodyField = document.body;
+
 function waitFor(element, eventName) {
-  // write your code here
+  const Prom1 = new Promise((resolve, reject) => {
+    function funEvent() {
+      resolve(
+        `Произошло ${eventName} в элементе: ${element.nodeName},индетификатор: ${element.id}`,
+      );
+
+      element.removeEventListener(eventName, funEvent);
+    }
+
+    element.addEventListener(eventName, funEvent);
+  });
+
+  return Prom1;
 }
 
 const printMessage = (message) => {
-  // write your code here
+  const div1 = document.createElement('div');
+
+  div1.classList.add('message');
+  div1.innerHTML = message;
+
+  bodyField.append(div1);
 };
 
 const loginField = document.getElementById('login');
