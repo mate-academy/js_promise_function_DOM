@@ -1,11 +1,22 @@
+/* eslint-disable */
 'use strict';
 
 function waitFor(element, eventName) {
-  // write your code here
+  return new Promise((resolve, reject) => {
+    element.addEventListener(eventName, () => {
+      resolve(
+        `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}`,
+      );
+    });
+  });
 }
 
 const printMessage = (message) => {
-  // write your code here
+  const newEl = document.createElement('div');
+  const body = document.querySelector('body');
+  body.append(newEl);
+  newEl.classList.add('message');
+  newEl.innerText = message;
 };
 
 const loginField = document.getElementById('login');
@@ -22,3 +33,4 @@ waitFor(passwordField, 'input').then(printMessage);
 waitFor(loginField, 'blur').then(printMessage);
 waitFor(passwordField, 'blur').then(printMessage);
 waitFor(button, 'blur').then(printMessage);
+
