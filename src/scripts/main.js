@@ -15,7 +15,7 @@ const printMessage = (message) => {
 
   msg.className = 'message';
   msg.textContent = message;
-  document.body.insertAdjacentElement('beforebegin', msg);
+  document.body.insertAdjacentElement('afterbegin', msg);
 };
 
 const loginField = document.getElementById('login');
