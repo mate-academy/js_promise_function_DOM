@@ -3,7 +3,7 @@
 function waitFor(element, eventName) {
   return new Promise((resolve) => {
     const handler = (e) => {
-      const message = `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}`;
+      const message = `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`;
 
       resolve(message);
       element.removeEventListener(eventName, handler); // cleanup
