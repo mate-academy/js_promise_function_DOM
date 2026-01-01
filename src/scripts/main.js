@@ -1,11 +1,26 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  // write your code here
+  return new Promise((resolve) => {
+    // We add an event listener that resolves the promise once triggered
+    element.addEventListener(
+      eventName,
+      (e) => {
+        const message = `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`;
+
+        resolve(message);
+      },
+      { once: true },
+    ); // 'once: true' ensures the listener is cleaned up after one trigger
+  });
 }
 
 const printMessage = (message) => {
-  // write your code here
+  const messageDiv = document.createElement('div');
+
+  messageDiv.className = 'message';
+  messageDiv.textContent = message;
+  document.body.appendChild(messageDiv);
 };
 
 const loginField = document.getElementById('login');
