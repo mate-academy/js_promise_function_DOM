@@ -1,11 +1,40 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  // write your code here
+  return new Promise((resolve, reject) => {
+    if (!element || typeof element.addEventListener !== 'function') {
+      reject(new Error('Invalid element provided'));
+
+      return;
+    }
+
+    if (!eventName || typeof eventName !== 'string') {
+      reject(new Error('Invalid eventName provided'));
+
+      return;
+    }
+
+    function handler() {
+      element.removeEventListener(eventName, handler);
+
+      const message =
+        `It was ${eventName} on the element: ` +
+        `${element.nodeName}, id: ${element.id}.`;
+
+      resolve(message);
+    }
+
+    element.addEventListener(eventName, handler);
+  });
 }
 
 const printMessage = (message) => {
-  // write your code here
+  const messageEl = document.createElement('div');
+
+  messageEl.className = 'message';
+  messageEl.textContent = message;
+
+  document.body.append(messageEl);
 };
 
 const loginField = document.getElementById('login');
