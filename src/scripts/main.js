@@ -1,11 +1,24 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  // write your code here
+  const promise = new Promise((resolve) => {
+    // eslint-disable-next-line no-shadow
+    element.addEventListener(eventName, (event) => {
+      resolve(
+        `It was ${eventName} on the element: ${event.target.nodeName}, id: ${event.target.id}.`,
+      );
+    });
+  });
+
+  return promise;
 }
 
 const printMessage = (message) => {
-  // write your code here
+  const newMessage = document.createElement('div');
+
+  newMessage.classList.add('message');
+  newMessage.textContent = message;
+  document.body.append(newMessage);
 };
 
 const loginField = document.getElementById('login');
