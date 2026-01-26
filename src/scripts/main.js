@@ -5,7 +5,7 @@ function waitFor(element, eventName) {
     // eslint-disable-next-line no-shadow
     element.addEventListener(eventName, (event) => {
       resolve(
-        `It was ${eventName} on the element: ${event.target.nodeName}, id: ${event.target.id}.`,
+        `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
       );
     });
   });
