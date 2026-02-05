@@ -5,9 +5,7 @@ function waitFor(element, eventName) {
     element.addEventListener(
       eventName,
       () => {
-        const message = `It was ${eventName}
-        on the element: ${element.nodeName},
-        id: ${element.id}.`;
+        const message = `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`;
 
         resolve(message);
       },
