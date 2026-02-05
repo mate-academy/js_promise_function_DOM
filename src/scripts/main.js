@@ -1,11 +1,33 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  // write your code here
+  return new Promise((resolve) => {
+    const handler = () => {
+      const message = `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`;
+
+      // прибираємо слухач, щоб Promise виконався лише один раз
+      element.removeEventListener(eventName, handler);
+
+      resolve(message);
+    };
+
+    // додаємо слухач події
+    element.addEventListener(eventName, handler);
+  });
 }
 
 const printMessage = (message) => {
-  // write your code here
+  // створюємо div
+  const div = document.createElement('div');
+
+  // додаємо клас
+  div.className = 'message';
+
+  // записуємо текст
+  div.textContent = message;
+
+  // додаємо в DOM
+  document.body.appendChild(div);
 };
 
 const loginField = document.getElementById('login');
