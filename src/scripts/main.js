@@ -15,14 +15,15 @@ function waitFor(element, eventName) {
 }
 
 const printMessage = (message) => {
-  if(!message) {
+  if (!message) {
     return;
   }
 
   const div = document.createElement('div');
+
   div.classList.add('message');
   div.textContent = message;
-  
+
   document.body.append(div);
 
   setTimeout(() => {
