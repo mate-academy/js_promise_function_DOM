@@ -1,21 +1,33 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  if (!element || !eventName) {
-    return;
-  }
+  return new Promise((resolve, reject) => {
+    if (!(element instanceof Element)) {
+      reject(new Error('The passed value is not a DOM element'));
 
-  return new Promise((resolve) => {
-    element.addEventListener(eventName, () => {
-      resolve(
-        `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
-      );
-    });
+      return;
+    }
+
+    if (!eventName) {
+      reject(new Error('Event name is missing'));
+
+      return;
+    }
+
+    element.addEventListener(
+      eventName,
+      () => {
+        resolve(
+          `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
+        );
+      },
+      { once: true },
+    );
   });
 }
 
 const printMessage = (message) => {
-  if (!message) {
+  if (message === null) {
     return;
   }
 
@@ -25,10 +37,6 @@ const printMessage = (message) => {
   div.textContent = message;
 
   document.body.append(div);
-
-  setTimeout(() => {
-    div.remove();
-  }, 2000);
 };
 
 const loginField = document.getElementById('login');
