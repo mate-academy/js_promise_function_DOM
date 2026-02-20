@@ -1,10 +1,15 @@
 'use strict';
 
 function waitFor(element, eventName) {
+  if (!element) {
+    return;
+  }
+
   return new Promise((resolve) => {
     function handler() {
-      resolve(`It was ${eventName}
-        on the element: ${element.nodeName}, id: ${element.id}.`);
+      const text = `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`;
+
+      resolve(text);
     }
     element.addEventListener(eventName, handler, { once: true });
   });
