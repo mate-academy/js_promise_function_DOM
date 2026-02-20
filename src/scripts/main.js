@@ -1,11 +1,11 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  if (!element) {
-    return;
-  }
+  return new Promise((resolve, reject) => {
+    if (!element) {
+      reject(new Error('Element is required'));
+    }
 
-  return new Promise((resolve) => {
     function handler() {
       const text = `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`;
 
