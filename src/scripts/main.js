@@ -1,11 +1,32 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  // write your code here
+  return new Promise((resolve, reject) => {
+    if (!element || typeof element.addEventListener !== 'function') {
+      reject(new Error('Element not found'));
+
+      return;
+    }
+
+    const handler = (e) => {
+      element.removeEventListener(eventName, handler);
+
+      resolve(
+        `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
+      );
+    };
+
+    element.addEventListener(eventName, handler);
+  });
 }
 
 const printMessage = (message) => {
-  // write your code here
+  const messageElement = document.createElement('div');
+
+  messageElement.classList.add('message');
+  messageElement.textContent = message;
+
+  document.body.appendChild(messageElement);
 };
 
 const loginField = document.getElementById('login');
