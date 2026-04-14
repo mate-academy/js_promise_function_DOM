@@ -12,6 +12,7 @@ function waitFor(element, eventName) {
   return promise;
 }
 
+
 const printMessage = (message) => {
   const body = document.querySelector('body');
   const msg = document.createElement('div');
