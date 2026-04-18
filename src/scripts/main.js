@@ -1,8 +1,8 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  return new Promise((resolve, reject) => {
-    element.addEventListener(
+  return new Promise((resolve) => {
+    element?.addEventListener(
       eventName,
       () => {
         resolve(
