@@ -5,10 +5,10 @@ const body = document.getElementsByTagName('body')[0];
 function waitFor(element, eventName) {
   // write your code here
   return new Promise((resolve) => {
-    element.addEventListener('click', (e) => {
+    element.addEventListener(eventName, (e) => {
       const msg = `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`;
 
-      printMessage(msg);
+      resolve(msg);
     });
   });
 }
