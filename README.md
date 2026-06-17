@@ -6,7 +6,7 @@ The function returns a `Promise` that should be **resolved** when `eventName` ha
 
 Also create a function `printMessage` that takes a string `message` and adds `<div class="message">` with the `message` to the DOM
 
-For your convenience we added several inputs and buttons on the page and used `waitFor` and `printMessage` in the `callPromise.js` 
+For your convenience we added several inputs and buttons on the page and used `waitFor` and `printMessage` in the `callPromise.js`
 so you can click and type to check if your code works as expected (you should see messages for `click`, `input` and `blur` events).
 
 ## Instructions
