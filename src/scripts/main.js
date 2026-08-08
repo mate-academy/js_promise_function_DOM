@@ -1,17 +1,15 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  return new Promise((resolve, reject) => {
-    document.addEventListener(
+  return new Promise((resolve) => {
+    element.addEventListener(
       eventName,
-      (e) => {
-        if (e.target === element) {
-          return resolve(
-            `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
-          );
-        }
+      () => {
+        resolve(
+          `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
+        );
       },
-      true,
+      { once: true },
     );
   });
 }
