@@ -4,9 +4,7 @@ function waitFor(element, eventName) {
   return new Promise((resolve) => {
     function handler() {
       element.removeEventListener(eventName, handler);
-
-      const message = `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id || 'none'}`;
-
+      const message = `It was ${eventName} on the element: ${element.tagName}, id: ${element.id}.`;
       resolve(message);
     }
     element.addEventListener(eventName, handler);
@@ -15,7 +13,6 @@ function waitFor(element, eventName) {
 
 const printMessage = (message) => {
   const messageElement = document.createElement('div');
-
   messageElement.className = 'message';
   messageElement.textContent = message;
   document.body.appendChild(messageElement);
