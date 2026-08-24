@@ -11,7 +11,9 @@ function waitFor(element, eventName) {
 }
 
 const printMessage = (message) => {
-  const newElement = document.createElement('div.message');
+  const newElement = document.createElement('div');
+
+  newElement.setAttribute('class', 'message');
 
   newElement.textContent = message;
 
