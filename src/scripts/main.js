@@ -1,11 +1,36 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  // write your code here
+  return new Promise((resolve, reject) => {
+    try {
+      element.addEventListener(
+        eventName,
+        () => {
+          resolve(
+            `It was ${eventName} on the element: ` +
+              `${element.nodeName}, id: ${element.id}.`,
+          );
+        },
+        { once: true },
+      );
+    } catch (error) {
+      reject(error);
+    }
+  });
 }
 
 const printMessage = (message) => {
-  // write your code here
+  try {
+    const messageBlock = document.createElement('div');
+
+    messageBlock.className = 'message';
+    messageBlock.textContent = message;
+
+    document.body.append(messageBlock);
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error);
+  }
 };
 
 const loginField = document.getElementById('login');
