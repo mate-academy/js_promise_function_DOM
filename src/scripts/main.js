@@ -2,9 +2,12 @@
 
 function waitFor(element, eventName) {
   return new Promise((resolve) => {
-    const message = `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`;
+    function a() {
+      const message = `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`;
 
-    resolve(message);
+      resolve(message);
+    }
+    element.addEventListener(eventName, a);
   });
 }
 
