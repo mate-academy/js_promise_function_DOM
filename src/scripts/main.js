@@ -1,11 +1,28 @@
 'use strict';
 
+const MESSAGE_CLASS = 'message';
+
 function waitFor(element, eventName) {
-  // write your code here
+  return new Promise((resolve) => {
+    element.addEventListener(
+      eventName,
+      () => {
+        resolve(
+          `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
+        );
+      },
+      { once: true },
+    );
+  });
 }
 
 const printMessage = (message) => {
-  // write your code here
+  const messageElement = document.createElement('div');
+
+  messageElement.classList.add(MESSAGE_CLASS);
+  messageElement.textContent = message;
+
+  document.body.append(messageElement);
 };
 
 const loginField = document.getElementById('login');
