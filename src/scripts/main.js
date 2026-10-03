@@ -1,24 +1,39 @@
 'use strict';
 
 function waitFor(element, eventName) {
-  // write your code here
+  return new Promise((resolve) => {
+    element.addEventListener(
+      eventName,
+      () => {
+        resolve(
+          `It was ${eventName} on the element: ${element.nodeName}, id: ${element.id}.`,
+        );
+      },
+      { once: true },
+    );
+  });
 }
 
-const printMessage = (message) => {
-  // write your code here
-};
+function printMessage(message) {
+  const messageElement = document.createElement('div');
 
-const loginField = document.getElementById('login');
-const passwordField = document.getElementById('password');
-const button = document.getElementById('submit');
+  messageElement.className = 'message';
+  messageElement.textContent = message;
 
-waitFor(loginField, 'click').then(printMessage);
-waitFor(passwordField, 'click').then(printMessage);
-waitFor(button, 'click').then(printMessage);
+  document.body.append(messageElement);
+}
 
-waitFor(loginField, 'input').then(printMessage);
-waitFor(passwordField, 'input').then(printMessage);
+const login = document.querySelector('#login');
+const password = document.querySelector('#password');
+const submit = document.querySelector('#submit');
 
-waitFor(loginField, 'blur').then(printMessage);
-waitFor(passwordField, 'blur').then(printMessage);
-waitFor(button, 'blur').then(printMessage);
+waitFor(login, 'click').then(printMessage);
+waitFor(login, 'input').then(printMessage);
+waitFor(login, 'blur').then(printMessage);
+
+waitFor(password, 'click').then(printMessage);
+waitFor(password, 'input').then(printMessage);
+waitFor(password, 'blur').then(printMessage);
+
+waitFor(submit, 'click').then(printMessage);
+waitFor(submit, 'blur').then(printMessage);
