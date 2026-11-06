@@ -5,7 +5,7 @@ function waitFor(element, eventName) {
   const promiseOne = new Promise((resolve) => {
     element.addEventListener(`${eventName}`, (newEvent) => {
       resolve(
-        `It was ${newEvent.type} on the element: ` +
+        `It was ${eventName} on the element: ` +
           `${element.nodeName}, id: ${element.id}.`,
       );
     });
